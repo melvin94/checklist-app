@@ -1,1 +1,4 @@
-= "#{checklist_item.content}"
+p
+    = checklist_item.content
+    br
+    = link_to "Delete", checklist_checklist_item_path(@checklist, checklist_item.id), method: :delete, data: { confirm: "Are you sure?" }

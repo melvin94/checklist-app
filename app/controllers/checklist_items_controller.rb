@@ -6,6 +6,16 @@ class ChecklistItemsController < ApplicationController
     redirect_to @checklist
   end
 
+  def destroy
+    @checklist_item = @checklist.checklist_items.find(params[:id])
+    if @checklist_item.destroy
+      flash[:success] = "Checklist item was deleted."
+    else
+      flash[:error] = "Checklist item could not be deleted."
+    end
+    redirect_to @checklist
+  end
+
   private
 
   def set_checklist
