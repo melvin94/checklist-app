@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_082733) do
+ActiveRecord::Schema.define(version: 2020_02_11_131924) do
 
   create_table "checklist_items", force: :cascade do |t|
     t.string "content"

@@ -2,3 +2,5 @@ p
     = checklist_item.content
     br
     = link_to "Delete", checklist_checklist_item_path(@checklist, checklist_item.id), method: :delete, data: { confirm: "Are you sure?" }
+    br
+    = link_to "Mark as Complete", complete_checklist_checklist_item_path(@checklist, checklist_item.id), method: :patch
