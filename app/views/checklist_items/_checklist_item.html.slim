@@ -1,12 +1,12 @@
 .div.row.clearfix
     .div.complete
         = link_to complete_checklist_checklist_item_path(@checklist, checklist_item.id), method: :patch do
-            - if checklist_item.completed_at?
+            - if checklist_item.completed
                 i.fa.fa-check style="opacity: 0.4;"
             - else
                 i.fa.fa-circle-thin
     .div.checklist_item
-        - if checklist_item.completed_at?
+        - if checklist_item.completed
             p style="opacity: 0.4;"
                 strike = checklist_item.content
         - else

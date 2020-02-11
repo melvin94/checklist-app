@@ -18,7 +18,7 @@ class ChecklistItemsController < ApplicationController
   end
 
   def complete
-    @checklist_item.update_attribute(:completed_at, Time.now)
+    @checklist_item.update_attribute(:completed, !@checklist_item.completed)
     redirect_to @checklist, notice: "Checklist item completed"
   end
 
