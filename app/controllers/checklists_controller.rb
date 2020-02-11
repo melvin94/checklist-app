@@ -28,7 +28,7 @@ class ChecklistsController < ApplicationController
 
     respond_to do |format|
       if @checklist.save
-        format.html { redirect_to @checklist, notice: 'Checklist was successfully created.' }
+        format.html { redirect_to @checklist, notice: "Checklist was successfully created." }
         format.json { render :show, status: :created, location: @checklist }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ChecklistsController < ApplicationController
   def update
     respond_to do |format|
       if @checklist.update(checklist_params)
-        format.html { redirect_to @checklist, notice: 'Checklist was successfully updated.' }
+        format.html { redirect_to @checklist, notice: "Checklist was successfully updated." }
         format.json { render :show, status: :ok, location: @checklist }
       else
         format.html { render :edit }
@@ -56,19 +56,20 @@ class ChecklistsController < ApplicationController
   def destroy
     @checklist.destroy
     respond_to do |format|
-      format.html { redirect_to checklists_url, notice: 'Checklist was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: "Checklist was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_checklist
-      @checklist = Checklist.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def checklist_params
-      params.require(:checklist).permit(:title, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_checklist
+    @checklist = Checklist.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def checklist_params
+    params.require(:checklist).permit(:title, :description)
+  end
 end
