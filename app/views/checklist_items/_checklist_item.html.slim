@@ -1,11 +1,16 @@
-.div class="row clearfix"
-    p
-        .div class="checklist_item"
+.div.row.clearfix
+    .div.complete
+        = link_to complete_checklist_checklist_item_path(@checklist, checklist_item.id), method: :patch do
             - if checklist_item.completed_at?
-                strike = checklist_item.content
+                i.fa.fa-check style="opacity: 0.4;"
             - else
-                = checklist_item.content
-        .div class="complete"
-            = link_to "Mark as Complete", complete_checklist_checklist_item_path(@checklist, checklist_item.id), method: :patch
-        .div class="trash"
-            = link_to "Delete", checklist_checklist_item_path(@checklist, checklist_item.id), method: :delete, data: { confirm: "Are you sure?" }
+                i.fa.fa-circle-thin
+    .div.checklist_item
+        - if checklist_item.completed_at?
+            p style="opacity: 0.4;"
+                strike = checklist_item.content
+        - else
+            p = checklist_item.content
+    .div.trash
+        = link_to checklist_checklist_item_path(@checklist, checklist_item.id), method: :delete, data: { confirm: "Are you sure?" } do
+            i.fa.fa-trash

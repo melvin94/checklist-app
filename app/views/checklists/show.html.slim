@@ -1,17 +1,17 @@
 p#notice = notice
 
-p
-  strong Title:
-  = @checklist.title
-p
-  strong Description:
-  = @checklist.description
+h2.checklist_title = @checklist.title
+p.checklist_sub_title = @checklist.description
+
 
 .div id="checklist_items_wrapper"
   = render @checklist.checklist_items
   .div id="form"
     = render "checklist_items/form"
 
-=> link_to 'Edit', edit_checklist_path(@checklist)
-'|
-=< link_to 'Back', checklists_path
+.div.links
+  => link_to 'Edit', edit_checklist_path(@checklist)
+  '|
+  => link_to 'Delete', checklist_path(@checklist), method: :delete, data: { confirm: "Are you sure?" }
+  '|
+  =< link_to 'Back', checklists_path

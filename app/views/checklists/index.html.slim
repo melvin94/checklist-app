@@ -1,23 +1,9 @@
-h1 Listing checklists
+- @checklists.each do |checklist|
+  .div class="index_row clearfix"
+    h2 class="checklist_title"
+      = link_to checklist.title, checklist
+    p class="checklist_sub_title"
+      = checklist.description
 
-table
-  thead
-    tr
-      th Title
-      th Description
-      th
-      th
-      th
-
-  tbody
-    - @checklists.each do |checklist|
-      tr
-        td = checklist.title
-        td = checklist.description
-        td = link_to 'Show', checklist
-        td = link_to 'Edit', edit_checklist_path(checklist)
-        td = link_to 'Destroy', checklist, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Checklist', new_checklist_path
+.div class="links"
+  = link_to 'New Checklist', new_checklist_path
