@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :checklists
+  resources :checklists do
+    resources :checklist_items
+  end
 
   root "checklists#index"
 end

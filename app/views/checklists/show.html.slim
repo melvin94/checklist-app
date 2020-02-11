@@ -7,6 +7,11 @@ p
   strong Description:
   = @checklist.description
 
+.div id="checklist_items_wrapper"
+  = render @checklist.checklist_items
+  .div id="form"
+    = render "checklist_items/form"
+
 => link_to 'Edit', edit_checklist_path(@checklist)
 '|
 =< link_to 'Back', checklists_path
