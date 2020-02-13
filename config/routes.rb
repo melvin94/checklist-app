@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :users
 
   devise_scope :user do
-    get "log_in", to: "devise/sessions#new"
-    get "log_out", to: "devise/sessions#destroy"
-    get "sign_up", to: "devise/registrations#new"
+    get "login", to: "devise/sessions#new"
+    get "logout", to: "devise/sessions#destroy"
+    get "signup", to: "devise/registrations#new"
   end
 
   resources :checklists do
