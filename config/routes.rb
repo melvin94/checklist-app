@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root "checklists#index"
+  root to: redirect("/login")
 end
