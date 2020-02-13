@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path_prefix: "devise"
+  resources :users
 
   devise_scope :user do
     get "log_in", to: "devise/sessions#new"
