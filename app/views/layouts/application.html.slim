@@ -7,8 +7,11 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css"
-    link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
+
+    - if current_user
+      .field = "Logged in as #{current_user.email}"
+      .field = link_to "Log Out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }
+
   body
     .div class="container"
       = yield
