@@ -1,0 +1,13 @@
+.field
+    = link_to "Add User", new_user_path
+
+table
+    - @users.each do |user|
+        td = user.first_name
+        td = user.last_name
+        td = user.email
+        td = link_to user_path(user) do
+            i.fa.fa-eye
+        td = link_to edit_user_path(user) do
+            i.fa.fa-edit
+
