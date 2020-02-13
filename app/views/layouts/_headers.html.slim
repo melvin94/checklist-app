@@ -1,6 +1,17 @@
+.field style="float: right;"
     - if current_user
-      .field
-        = link_to "Log Out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }
-        = " Logged in as #{current_user.email}"
+        => "Logged in as #{current_user.email}"
+        => link_to "Log Out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }
     - else
-      .field = link_to "Log In", new_user_session_path
+        => link_to "Log In", new_user_session_path
+    
+.container
+    => link_to "Overview", root_url
+    => link_to "Reports", root_url
+    => link_to "Assignments", root_url
+    => link_to "Checklists", root_url
+    => link_to "Users", users_path
+    => link_to "Teams", root_url
+    => link_to "Audit", root_url
+    => link_to "Roles", root_url
+
