@@ -1,3 +1,6 @@
     - if current_user
-      .field = "Logged in as #{current_user.email}"
-      .field = link_to "Log Out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }
+      .field
+        = link_to "Log Out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }
+        = " Logged in as #{current_user.email}"
+    - else
+      .field = link_to "Log In", new_user_session_path
