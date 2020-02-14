@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   resources :roles
   devise_for :users, skip: [:sessions], controllers: {
-                       passwords: "devise/passwords",
-                       registrations: "devise/registrations",
-                       sessions: "devise/sessions",
-                       confirmations: "devise/confirmations",
+                       passwords: "overridden_devise/passwords",
+                       registrations: "overridden_devise/registrations",
+                       sessions: "overridden_devise/sessions",
+                       confirmations: "overridden_devise/confirmations",
                      }
   resources :users
 
   devise_scope :user do
-    get "login", to: "devise/sessions#new"
-    post "login", to: "devise/sessions#create"
-    delete "logout", to: "devise/sessions#destroy"
+    get "login", to: "overridden_devise/sessions#new"
+    post "login", to: "overridden_devise/sessions#create"
+    delete "logout", to: "overridden_devise/sessions#destroy"
 
     authenticated :user do
       root "users#index", as: :authenticated_root
