@@ -34,6 +34,7 @@ body {
     background: -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
     background: linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
     font-family: 'Lato', sans-serif;
+    // position: fixed;
 }
 
 .clearfix:before,
@@ -54,8 +55,8 @@ body {
 }
 
 .container {
-    width: 50%;
-    max-width: 750px;
+    width: 100%;
+    min-width: 750px;
     background: $white_opaque;
     margin: 3em auto 0 auto;
     border-radius: 7px;
@@ -279,6 +280,7 @@ input[type="submit"] {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    border-radius: 0px 7px 7px 7px;
 }
 
 /* Links inside the dropdown */
@@ -292,6 +294,7 @@ input[type="submit"] {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
     background-color: #ddd;
+    border-radius: 7px;
 }
 
 /* Show the dropdown menu on hover */
@@ -303,4 +306,47 @@ input[type="submit"] {
 .dropdown:hover .dropbtn {
     background-color: rgba(0, 0, 0, 0.75);
     cursor: default;
+    border-radius: 7px 7px 0px 0px;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Table ]*/
+table {
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+thead {
+    color: white;
+    background: gray;
+}
+
+tbody {
+    background: rgba(255, 255, 255, 0.651);
+}
+
+tbody tr:hover {
+    color: #555555;
+    background: #f5f5f5;
+    cursor: default;
+}
+
+th,
+td {
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+}
+
+table td:first-child {
+    text-align: left;
+}
+
+table th:first-child {
+    text-align: left;
+    margin: 100px;
 }

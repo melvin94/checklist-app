@@ -12,9 +12,7 @@ table
       th Audit user
       th Primary
       th Admin
-      th
-      th
-      th
+      th Actions
 
   tbody
     - @roles.each do |role|
@@ -28,9 +26,13 @@ table
         td = role.audit_user ? "✔" : "✘"
         td = role.primary ? "✔" : "✘"
         td = role.admin ? "✔" : "✘"
-        td = link_to 'Show', role
-        td = link_to 'Edit', edit_role_path(role)
-        td = link_to 'Destroy', role, data: { confirm: 'Are you sure?' }, method: :delete
+        td
+          => link_to role do
+            i.fa.fa-eye
+          => link_to edit_role_path(role) do
+            i.fa.fa-edit
+          => link_to role, data: { confirm: 'Are you sure?' }, method: :delete do
+            i.fa.fa-trash
 
 br
 

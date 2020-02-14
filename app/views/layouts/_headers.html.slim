@@ -1,9 +1,8 @@
-.field style="float: right; text-align: right;"
-    = link_to "Log Out", logout_path, method: :delete, data: { confirm: 'Are you sure?' }
-    br
-    = "Logged in as #{current_user.email}"
-    
 .container
+    .field style="float: right; text-align: right;"
+        = link_to "Log Out", logout_path, method: :delete, data: { confirm: 'Are you sure?' }
+        br
+        = "Logged in as #{current_user.email}"
     / => link_to "Overview"
     / => link_to "Reports"
     / => link_to "Assignments"

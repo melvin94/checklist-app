@@ -2,13 +2,19 @@
     = link_to "Add User", new_user_path
 
 table
+    thead
+        tr
+        th Name
+        th Email
+        th Actions
+
     - @users.each do |user|
         tr
-            td = user.first_name
-            td = user.last_name
+            td = "#{user.first_name} #{user.last_name}"
             td = user.email
-            td = link_to user_path(user) do
-                i.fa.fa-eye
-            td = link_to edit_user_path(user) do
-                i.fa.fa-edit
+            td 
+                => link_to user_path(user) do
+                    i.fa.fa-eye
+                => link_to edit_user_path(user) do
+                    i.fa.fa-edit
 
