@@ -8,4 +8,7 @@
     .field
         'Email: 
         = @user.email
+    .field
+        'Role: 
+        = Role.find(@user.role_id).title
 

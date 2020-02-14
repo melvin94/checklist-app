@@ -5,12 +5,14 @@ table
     thead
         tr
         th Name
+        th Role
         th Email
         th Actions
 
     - @users.each do |user|
         tr
             td = "#{user.first_name} #{user.last_name}"
+            td = Role.find(user.role_id).title
             td = user.email
             td 
                 => link_to user_path(user) do
