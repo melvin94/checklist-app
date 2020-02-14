@@ -1,10 +1,4 @@
 class UserPolicy < ApplicationPolicy
-  def index?
-  end
-
-  def show?
-  end
-
   def create?
     Role.find(user.role_id).user_manager
   end
