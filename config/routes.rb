@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :roles
   devise_for :users, skip: [:sessions], controllers: {
                        passwords: "devise/passwords",
                        registrations: "devise/registrations",

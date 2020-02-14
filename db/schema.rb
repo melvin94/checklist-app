@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_075054) do
+ActiveRecord::Schema.define(version: 2020_02_14_084519) do
 
   create_table "checklist_items", force: :cascade do |t|
     t.string "content"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 2020_02_13_075054) do
   create_table "checklists", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "title"
+    t.boolean "checklist_user"
+    t.boolean "checklist_manager"
+    t.boolean "user_manager"
+    t.boolean "organization_manager"
+    t.boolean "audit_manager"
+    t.boolean "audit_user"
+    t.boolean "primary"
+    t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

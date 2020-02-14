@@ -1,0 +1,33 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @role.title
+p
+  strong Checklist user:
+  = @role.checklist_user
+p
+  strong Checklist manager:
+  = @role.checklist_manager
+p
+  strong User manager:
+  = @role.user_manager
+p
+  strong Organization manager:
+  = @role.organization_manager
+p
+  strong Audit manager:
+  = @role.audit_manager
+p
+  strong Audit user:
+  = @role.audit_user
+p
+  strong Primary:
+  = @role.primary
+p
+  strong Admin:
+  = @role.admin
+
+=> link_to 'Edit', edit_role_path(@role)
+'|
+=< link_to 'Back', roles_path

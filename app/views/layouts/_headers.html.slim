@@ -22,5 +22,11 @@
     .dropdown
         .dropbtn Users
         .dropdown-content
-            => link_to "Create Users", new_user_path
+            => link_to "Create User", new_user_path
             => link_to "View Users", users_path
+
+    .dropdown
+        .dropbtn Roles
+        .dropdown-content
+            => link_to "Create Role", new_role_path
+            => link_to "View Roles", roles_path
