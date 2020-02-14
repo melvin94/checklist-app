@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_084519) do
+ActiveRecord::Schema.define(version: 2020_02_14_101515) do
 
   create_table "checklist_items", force: :cascade do |t|
     t.string "content"
@@ -52,9 +52,12 @@ ActiveRecord::Schema.define(version: 2020_02_14_084519) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.integer "role_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
   add_foreign_key "checklist_items", "checklists"
+  add_foreign_key "users", "roles"
 end
