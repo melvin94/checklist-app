@@ -301,5 +301,6 @@ input[type="submit"] {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.75);
+    cursor: default;
 }
