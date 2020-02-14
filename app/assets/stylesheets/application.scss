@@ -309,7 +309,8 @@ input[type="submit"] {
 }
 
 .forms input[type="email"],
-.forms input[type="password"] {
+.forms input[type="password"],
+.forms select {
     width: 50%;
     height: 32px;
     padding: 0 0.4rem;
