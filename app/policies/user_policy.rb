@@ -5,19 +5,15 @@ class UserPolicy < ApplicationPolicy
   def show?
   end
 
-  def new?
-    current_user
-  end
-
   def create?
-  end
-
-  def edit?
+    Role.find(user.role_id).user_manager
   end
 
   def update?
+    Role.find(user.role_id).user_manager || user.role_id == record.role_id
   end
 
   def destroy?
+    Role.find(user.role_id).user_manager
   end
 end
