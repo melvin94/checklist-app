@@ -10,7 +10,7 @@ class OverriddenDevise::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    if Role.find(current_user.role_id).admin
+    if current_user && Role.find(current_user.role_id).admin
       super
     else
       destroy
