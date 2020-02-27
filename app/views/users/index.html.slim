@@ -6,17 +6,20 @@ table
         tr
         th Name
         th Role
+        th Access Level
         th Email
         th Actions
 
     - @users.each do |user|
-        tr
-            td = "#{user.first_name} #{user.last_name}"
-            td = Role.find(user.role_id).title
-            td = user.email
-            td 
-                => link_to user_path(user) do
-                    i.fa.fa-eye
-                => link_to edit_user_path(user) do
-                    i.fa.fa-edit
+        - if user.access_level.level >= current_user.access_level.level
+            tr
+                td = "#{user.first_name} #{user.last_name}"
+                td = user.role.title
+                td = user.access_level.title
+                td = user.email
+                td 
+                    => link_to user_path(user) do
+                        i.fa.fa-eye
+                    => link_to edit_user_path(user) do
+                        i.fa.fa-edit
 
