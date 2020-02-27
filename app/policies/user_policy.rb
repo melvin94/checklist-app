@@ -1,13 +1,17 @@
 class UserPolicy < ApplicationPolicy
+  def show?
+    user.access_level.level <= record.access_level.level
+  end
+
   def create?
-    Role.find(user.role_id).user_manager
+    user.role.user_manager
   end
 
   def update?
-    Role.find(user.role_id).user_manager || user.role_id == record.role_id
+    user.role.user_manager || user.role_id == record.role_id
   end
 
   def destroy?
-    Role.find(user.role_id).user_manager
+    user.role.user_manager
   end
 end
