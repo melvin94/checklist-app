@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :access_levels
   resources :roles
   devise_for :users, skip: [:sessions], controllers: {
                        passwords: "overridden_devise/passwords",

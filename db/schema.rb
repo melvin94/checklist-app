@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_101515) do
+ActiveRecord::Schema.define(version: 2020_02_27_082340) do
+
+  create_table "access_levels", force: :cascade do |t|
+    t.integer "level"
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "checklist_items", force: :cascade do |t|
     t.string "content"
@@ -53,11 +60,14 @@ ActiveRecord::Schema.define(version: 2020_02_14_101515) do
     t.string "first_name"
     t.string "last_name"
     t.integer "role_id"
+    t.integer "access_level_id"
+    t.index ["access_level_id"], name: "index_users_on_access_level_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
   add_foreign_key "checklist_items", "checklists"
+  add_foreign_key "users", "access_levels"
   add_foreign_key "users", "roles"
 end

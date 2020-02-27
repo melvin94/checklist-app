@@ -6,8 +6,195 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-support_role = Role.new(title: "Tech-Support", admin: true)
-support_role.save!
+access_titles = [
+  "corporate",
+  "region",
+  "hotel",
+  "department",
+]
+4.times do |access_level|
+  AccessLevel.create!(level: access_level, title: access_titles[access_level])
+end
 
-tech_support_user = User.new(first_name: "Tech", last_name: "Support", email: "shrimp-ops-ts@platform45.com", password: "123456", password_confirmation: "123456", role_id: "1")
-tech_support_user.save!
+roles = [
+  {
+    title: "Tech-Support",
+    checklist_user: true,
+    checklist_manager: true,
+    user_manager: true,
+    organization_manager: true,
+    audit_manager: true,
+    audit_user: true,
+    primary: true,
+    admin: true,
+  },
+
+  {
+    title: "Internal Checker",
+    checklist_user: true,
+    checklist_manager: false,
+    user_manager: false,
+    organization_manager: false,
+    audit_manager: false,
+    audit_user: false,
+    primary: false,
+    admin: false,
+  },
+
+  {
+    title: "Supervisor",
+    checklist_user: true,
+    checklist_manager: true,
+    user_manager: false,
+    organization_manager: false,
+    audit_manager: false,
+    audit_user: false,
+    primary: false,
+    admin: true,
+  },
+
+  {
+    title: "General Manager",
+    checklist_user: true,
+    checklist_manager: true,
+    user_manager: true,
+    organization_manager: false,
+    audit_manager: false,
+    audit_user: false,
+    primary: false,
+    admin: true,
+  },
+
+  {
+    title: "Manager On Duty",
+    checklist_user: true,
+    checklist_manager: true,
+    user_manager: false,
+    organization_manager: false,
+    audit_manager: false,
+    audit_user: false,
+    primary: false,
+    admin: true,
+  },
+
+  {
+    title: "Administrator",
+    checklist_user: true,
+    checklist_manager: true,
+    user_manager: true,
+    organization_manager: false,
+    audit_manager: false,
+    audit_user: false,
+    primary: false,
+    admin: true,
+  },
+
+  {
+    title: "External Checker",
+    checklist_user: true,
+    checklist_manager: false,
+    user_manager: false,
+    organization_manager: false,
+    audit_manager: false,
+    audit_user: false,
+    primary: false,
+    admin: true,
+  },
+
+  {
+    title: "Regional Specialist",
+    checklist_user: true,
+    checklist_manager: true,
+    user_manager: false,
+    organization_manager: false,
+    audit_manager: false,
+    audit_user: false,
+    primary: false,
+    admin: true,
+  },
+
+  {
+    title: "Regional COO",
+    checklist_user: true,
+    checklist_manager: true,
+    user_manager: true,
+    organization_manager: false,
+    audit_manager: false,
+    audit_user: true,
+    primary: false,
+    admin: true,
+  },
+
+  {
+    title: "Administrator Corporate",
+    checklist_user: true,
+    checklist_manager: true,
+    user_manager: true,
+    organization_manager: true,
+    audit_manager: true,
+    audit_user: false,
+    primary: false,
+    admin: true,
+  },
+
+  {
+    title: "First Administrator Corporate",
+    checklist_user: true,
+    checklist_manager: true,
+    user_manager: true,
+    organization_manager: true,
+    audit_manager: true,
+    audit_user: false,
+    primary: true,
+    admin: true,
+  },
+
+  {
+    title: "Corporate Specialist",
+    checklist_user: true,
+    checklist_manager: true,
+    user_manager: false,
+    organization_manager: false,
+    audit_manager: true,
+    audit_user: false,
+    primary: false,
+    admin: true,
+  },
+
+  {
+    title: "External Reviewer",
+    checklist_user: false,
+    checklist_manager: false,
+    user_manager: false,
+    organization_manager: false,
+    audit_manager: false,
+    audit_user: false,
+    primary: false,
+    admin: true,
+  },
+
+]
+
+roles.each do |role|
+  Role.create!(
+    title: role[:title],
+    checklist_user: role[:checklist_user],
+    checklist_manager: role[:checklist_manager],
+    user_manager: role[:user_manager],
+    organization_manager: role[:organization_manager],
+    audit_manager: role[:audit_manager],
+    audit_user: role[:audit_user],
+    primary: role[:primary],
+    admin: role[:admin],
+  )
+end
+
+tech_support_user = User.create!(
+  first_name: "Tech",
+  last_name: "Support",
+  email: "shrimp-ops-ts@platform45.com",
+  password: "123456",
+  password_confirmation: "123456",
+  role_id: "1",
+  access_level_id: "1",
+)
