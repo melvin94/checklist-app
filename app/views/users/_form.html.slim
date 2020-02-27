@@ -16,6 +16,9 @@
         = f.label :role_id
         = f.collection_select :role_id, Role.all, :id, :title, include_blank: true
     .field
+        = f.label :access_level_id
+        = f.collection_select :access_level_id, AccessLevel.all, :id, :title, include_blank: true
+    .field
         = f.label :email
         = f.email_field :email
     .field
