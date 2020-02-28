@@ -12,6 +12,7 @@ table
       th Audit user
       th Primary
       th Admin
+      th Support
       th Actions
 
   tbody
@@ -26,6 +27,7 @@ table
         td = role.audit_user ? "✔" : "✘"
         td = role.primary ? "✔" : "✘"
         td = role.admin ? "✔" : "✘"
+        td = role.support ? "✔" : "✘"
         td
           => link_to role do
             i.fa.fa-eye
