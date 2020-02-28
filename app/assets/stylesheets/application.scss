@@ -62,7 +62,13 @@ body {
     border-radius: 7px;
     -webkit-box-shadow: 0 0 4px 3px rgba(0, 0, 0, .3);
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, .03);
-    padding: 1em 0;
+    padding: 1em 1em;
+}
+
+.page_title {
+    font-weight: 700;
+    font-size: auto;
+    color: white;
 }
 
 .checklist_title {
@@ -195,6 +201,17 @@ body {
     }
 }
 
+.log-out-links {
+    float: right;
+    display: block;
+    text-align: right;
+    color: white;
+
+    a {
+        color: white;
+    }
+}
+
 .header-links {
     display: block;
     margin: 1.5em auto 0 auto;
@@ -319,6 +336,15 @@ input[type="submit"] {
     border-radius: 7px;
 }
 
+.logo-image {
+    img {
+        width: 75px;
+        height: auto;
+    }
+
+    position: absolute;
+}
+
 /*//////////////////////////////////////////////////////////////////
 [ Table ]*/
 table {
@@ -337,7 +363,7 @@ thead {
 }
 
 tbody {
-    background: rgba(255, 255, 255, 0.651);
+    background: rgba(255, 255, 255, 1.0);
 }
 
 tbody tr:hover {
@@ -348,6 +374,7 @@ tbody tr:hover {
 
 th,
 td {
+    padding: 1em 1em;
     height: 50px;
     border-bottom: 1px solid #ddd;
 }
