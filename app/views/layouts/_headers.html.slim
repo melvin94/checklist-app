@@ -16,23 +16,26 @@
     .dropdown
         .dropbtn Checklists
         .dropdown-content
-            => link_to "Create Checklist", new_checklist_path
+            - if current_user.role.checklist_manager
+                => link_to "Create Checklist", new_checklist_path
             => link_to "View Checklists", checklists_path
         
     .dropdown
         .dropbtn Users
         .dropdown-content
-            => link_to "Create User", new_user_path
+            - if current_user.role.user_manager
+                => link_to "Create User", new_user_path
             => link_to "View Users", users_path
 
-    .dropdown
-        .dropbtn Roles
-        .dropdown-content
-            => link_to "Create Role", new_role_path
-            => link_to "View Roles", roles_path
+    - if current_user.role.support
+        .dropdown
+            .dropbtn Roles
+            .dropdown-content
+                => link_to "Create Role", new_role_path
+                => link_to "View Roles", roles_path
 
-    .dropdown
-        .dropbtn Access Levels
-        .dropdown-content
-            => link_to "Create Access Level", new_access_level_path
-            => link_to "View Access Levels", access_levels_path
+        .dropdown
+            .dropbtn Access Levels
+            .dropdown-content
+                => link_to "Create Access Level", new_access_level_path
+                => link_to "View Access Levels", access_levels_path
