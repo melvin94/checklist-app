@@ -38,7 +38,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # TODO: this action
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
   end
 
   private
