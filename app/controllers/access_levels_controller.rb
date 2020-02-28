@@ -5,6 +5,7 @@ class AccessLevelsController < ApplicationController
   # GET /access_levels.json
   def index
     @access_levels = AccessLevel.all
+    authorize @access_levels
   end
 
   # GET /access_levels/1
@@ -15,6 +16,7 @@ class AccessLevelsController < ApplicationController
   # GET /access_levels/new
   def new
     @access_level = AccessLevel.new
+    authorize @access_level
   end
 
   # GET /access_levels/1/edit
@@ -25,10 +27,11 @@ class AccessLevelsController < ApplicationController
   # POST /access_levels.json
   def create
     @access_level = AccessLevel.new(access_level_params)
+    authorize @access_level
 
     respond_to do |format|
       if @access_level.save
-        format.html { redirect_to @access_level, notice: 'Access level was successfully created.' }
+        format.html { redirect_to @access_level, notice: "Access level was successfully created." }
         format.json { render :show, status: :created, location: @access_level }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class AccessLevelsController < ApplicationController
   def update
     respond_to do |format|
       if @access_level.update(access_level_params)
-        format.html { redirect_to @access_level, notice: 'Access level was successfully updated.' }
+        format.html { redirect_to @access_level, notice: "Access level was successfully updated." }
         format.json { render :show, status: :ok, location: @access_level }
       else
         format.html { render :edit }
@@ -56,19 +59,21 @@ class AccessLevelsController < ApplicationController
   def destroy
     @access_level.destroy
     respond_to do |format|
-      format.html { redirect_to access_levels_url, notice: 'Access level was successfully destroyed.' }
+      format.html { redirect_to access_levels_url, notice: "Access level was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_access_level
-      @access_level = AccessLevel.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def access_level_params
-      params.require(:access_level).permit(:level, :title)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_access_level
+    @access_level = AccessLevel.find(params[:id])
+    authorize @access_level
+  end
+
+  # Only allow a list of trusted parameters through.
+  def access_level_params
+    params.require(:access_level).permit(:level, :title)
+  end
 end
