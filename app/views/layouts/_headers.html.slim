@@ -1,5 +1,7 @@
+.logo-image = image_tag("logo.png")
+
 .container
-    .field style="float: right; text-align: right;"
+    .log-out-links
         = link_to "Log Out", logout_path, method: :delete, data: { confirm: 'Are you sure?' }
         br
         => "Logged in as"
