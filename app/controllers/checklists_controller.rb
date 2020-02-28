@@ -5,6 +5,7 @@ class ChecklistsController < ApplicationController
   # GET /checklists.json
   def index
     @checklists = Checklist.all
+    authorize @checklists
   end
 
   # GET /checklists/1
@@ -15,6 +16,7 @@ class ChecklistsController < ApplicationController
   # GET /checklists/new
   def new
     @checklist = Checklist.new
+    authorize @checklist
   end
 
   # GET /checklists/1/edit
@@ -25,6 +27,7 @@ class ChecklistsController < ApplicationController
   # POST /checklists.json
   def create
     @checklist = Checklist.new(checklist_params)
+    authorize @checklist
 
     respond_to do |format|
       if @checklist.save
@@ -66,6 +69,7 @@ class ChecklistsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_checklist
     @checklist = Checklist.find(params[:id])
+    authorize @checklist
   end
 
   # Only allow a list of trusted parameters through.
