@@ -27,6 +27,7 @@ roles = [
     audit_user: true,
     primary: true,
     admin: true,
+    support: true,
   },
 
   {
@@ -39,6 +40,7 @@ roles = [
     audit_user: false,
     primary: false,
     admin: false,
+    support: false,
   },
 
   {
@@ -51,6 +53,7 @@ roles = [
     audit_user: false,
     primary: false,
     admin: true,
+    support: false,
   },
 
   {
@@ -63,6 +66,7 @@ roles = [
     audit_user: false,
     primary: false,
     admin: true,
+    support: false,
   },
 
   {
@@ -75,6 +79,7 @@ roles = [
     audit_user: false,
     primary: false,
     admin: true,
+    support: false,
   },
 
   {
@@ -87,6 +92,7 @@ roles = [
     audit_user: false,
     primary: false,
     admin: true,
+    support: false,
   },
 
   {
@@ -99,6 +105,7 @@ roles = [
     audit_user: false,
     primary: false,
     admin: true,
+    support: false,
   },
 
   {
@@ -111,6 +118,7 @@ roles = [
     audit_user: false,
     primary: false,
     admin: true,
+    support: false,
   },
 
   {
@@ -123,6 +131,7 @@ roles = [
     audit_user: true,
     primary: false,
     admin: true,
+    support: false,
   },
 
   {
@@ -135,6 +144,7 @@ roles = [
     audit_user: false,
     primary: false,
     admin: true,
+    support: false,
   },
 
   {
@@ -147,6 +157,7 @@ roles = [
     audit_user: false,
     primary: true,
     admin: true,
+    support: false,
   },
 
   {
@@ -159,6 +170,7 @@ roles = [
     audit_user: false,
     primary: false,
     admin: true,
+    support: false,
   },
 
   {
@@ -171,6 +183,7 @@ roles = [
     audit_user: false,
     primary: false,
     admin: true,
+    support: false,
   },
 
 ]
@@ -186,6 +199,7 @@ roles.each do |role|
     audit_user: role[:audit_user],
     primary: role[:primary],
     admin: role[:admin],
+    support: role[:support],
   )
 end
 
