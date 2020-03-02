@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     delete "logout", to: "overridden_devise/sessions#destroy"
 
     authenticated :user do
-      root "users#index", as: :authenticated_root
+      root "checklists#index", as: :authenticated_root
     end
 
     unauthenticated :user do
