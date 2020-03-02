@@ -9,9 +9,9 @@
         = link_to "#{current_user.email}", user_path(current_user)
         br
         => "Role:"
-        => current_user.role.title
+        => link_to "#{current_user.role.title}", role_path(current_user.role)
         => "| Access Level:"
-        = current_user.access_level.title
+        = link_to "#{current_user.access_level.title}", access_level_path(current_user.access_level)
 
     / => link_to "Overview"
     / => link_to "Reports"
