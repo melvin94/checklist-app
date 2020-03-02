@@ -7,6 +7,19 @@ class ChecklistItemsController < ApplicationController
     redirect_to @checklist
   end
 
+  def edit
+    @checklist_item = @checklist.checklist_items.find(params[:id])
+  end
+
+  def update
+    @checklist_item = @checklist.checklist_items.find(params[:id])
+    if @checklist_item.update(checklist_item_params)
+      redirect_to @checklist
+    else
+      render "edit"
+    end
+  end
+
   def destroy
     @checklist_item = @checklist.checklist_items.find(params[:id])
     if @checklist_item.destroy
