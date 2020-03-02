@@ -1,48 +1,49 @@
-= form_for @role do |f|
-  - if @role.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@role.errors.count, "error")} prohibited this role from being saved:"
-      ul
-        - @role.errors.full_messages.each do |message|
-          li = message
+.forms
+  = form_for @role do |f|
+    - if @role.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@role.errors.count, "error")} prohibited this role from being saved:"
+        ul
+          - @role.errors.full_messages.each do |message|
+            li = message
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :checklist_user do
-      => f.check_box :checklist_user
-      = "Checklist User"
-  .field
-    = f.label :checklist_manager do
-      => f.check_box :checklist_manager
-      = "Checklist Manager"
-  .field
-    = f.label :user_manager do
-      => f.check_box :user_manager
-      = "User Manager"
-  .field
-    = f.label :organization_manager do
-      => f.check_box :organization_manager
-      = "Organization Manager"
-  .field
-    = f.label :audit_manager do
-      => f.check_box :audit_manager
-      = "Audit Manager"
-  .field
-    = f.label :audit_user do
-      => f.check_box :audit_user
-      = "Audit User"
-  .field
-    = f.label :primary do
-      => f.check_box :primary
-      = "Primary"
-  .field
-    = f.label :admin do
-      => f.check_box :admin
-      = "Admin"
-  .field
-    = f.label :support do
-      => f.check_box :support
-      = "Support"
-  .actions = f.submit
+    .field
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :checklist_user do
+        => f.check_box :checklist_user
+        = "Checklist User"
+    .field
+      = f.label :checklist_manager do
+        => f.check_box :checklist_manager
+        = "Checklist Manager"
+    .field
+      = f.label :user_manager do
+        => f.check_box :user_manager
+        = "User Manager"
+    .field
+      = f.label :organization_manager do
+        => f.check_box :organization_manager
+        = "Organization Manager"
+    .field
+      = f.label :audit_manager do
+        => f.check_box :audit_manager
+        = "Audit Manager"
+    .field
+      = f.label :audit_user do
+        => f.check_box :audit_user
+        = "Audit User"
+    .field
+      = f.label :primary do
+        => f.check_box :primary
+        = "Primary"
+    .field
+      = f.label :admin do
+        => f.check_box :admin
+        = "Admin"
+    .field
+      = f.label :support do
+        => f.check_box :support
+        = "Support"
+    .actions = f.submit

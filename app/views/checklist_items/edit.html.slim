@@ -1,0 +1,42 @@
+p#notice = notice
+
+h2.checklist_title
+  => @checklist.title
+p.checklist_sub_title
+  => @checklist.description
+
+.div id="checklist_items_wrapper"
+  / = render @checklist.checklist_items
+  - @checklist.checklist_items.each do |checklist_item|
+    - if checklist_item != @checklist_item
+      .div.row.clearfix
+          .div.complete
+              - if checklist_item.completed
+                  i.fa.fa-check style="opacity: 0.4;"
+              - else
+                  i.fa.fa-circle-thin
+          .div.checklist_item
+              - if checklist_item.completed
+                  p style="opacity: 0.4;"
+                      strike = checklist_item.content
+              - else
+                  p = checklist_item.content
+          .div.trash
+              => link_to edit_checklist_checklist_item_path(@checklist, checklist_item.id) do
+                  i.fa.fa-edit
+
+    - else
+      .div.row.clearfix
+          .div.complete
+            - if checklist_item.completed
+                i.fa.fa-check style="opacity: 0.4;"
+            - else
+                i.fa.fa-circle-thin
+
+          .div id="form-edit"
+            = form_for([@checklist, @checklist_item]) do |f|
+                = f.text_field :content
+                = f.submit "Update"
+
+          .div.trash
+            = link_to "cancel", checklist_path(@checklist)

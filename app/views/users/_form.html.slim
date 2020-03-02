@@ -1,30 +1,31 @@
-= form_for @user do |f|
-    - if @user.errors.any?
-        / #error_explanation
-        = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-        / ul
-        /     - @user.errors.full_messages.each do |message|
-        /     li = message
+.forms
+    = form_for @user do |f|
+        - if @user.errors.any?
+            / #error_explanation
+            = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+            / ul
+            /     - @user.errors.full_messages.each do |message|
+            /     li = message
 
-    .field
-        = f.label :first_name
-        = f.text_field :first_name
-    .field
-        = f.label :last_name
-        = f.text_field :last_name
-    .field
-        = f.label :role_id
-        = f.collection_select :role_id, Role.all, :id, :title, include_blank: true
-    .field
-        = f.label :access_level_id
-        = f.collection_select :access_level_id, AccessLevel.all, :id, :title, include_blank: true
-    .field
-        = f.label :email
-        = f.email_field :email
-    .field
-        = f.label :password
-        = f.password_field :password
-    .field
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation
-    .actions = f.submit
+        .field
+            = f.label :first_name
+            = f.text_field :first_name
+        .field
+            = f.label :last_name
+            = f.text_field :last_name
+        .field
+            = f.label :role_id
+            = f.collection_select :role_id, Role.all, :id, :title, include_blank: true
+        .field
+            = f.label :access_level_id
+            = f.collection_select :access_level_id, AccessLevel.all, :id, :title, include_blank: true
+        .field
+            = f.label :email
+            = f.email_field :email
+        .field
+            = f.label :password
+            = f.password_field :password
+        .field
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation
+        .actions = f.submit
