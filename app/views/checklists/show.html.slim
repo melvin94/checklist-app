@@ -1,17 +1,17 @@
 p#notice = notice
 
-h2.checklist_title = @checklist.title
-p.checklist_sub_title = @checklist.description
+h2.checklist_title
+  => @checklist.title
+p.checklist_sub_title
+  => @checklist.description
 
+  => link_to edit_checklist_path(@checklist) do
+      i.fa.fa-edit
+  => link_to @checklist, data: { confirm: 'Are you sure?' }, method: :delete do
+      i.fa.fa-trash
 
 .div id="checklist_items_wrapper"
   = render @checklist.checklist_items
   .div id="form"
     = render "checklist_items/form"
 
-.div.links
-  => link_to 'Edit', edit_checklist_path(@checklist)
-  '|
-  => link_to 'Delete', checklist_path(@checklist), method: :delete, data: { confirm: "Are you sure?" }
-  '|
-  =< link_to 'Back', checklists_path

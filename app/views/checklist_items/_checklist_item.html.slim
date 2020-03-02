@@ -12,5 +12,7 @@
         - else
             p = checklist_item.content
     .div.trash
-        = link_to checklist_checklist_item_path(@checklist, checklist_item.id), method: :delete, data: { confirm: "Are you sure?" } do
+        => link_to edit_checklist_checklist_item_path(@checklist, checklist_item.id) do
+            i.fa.fa-edit
+        => link_to checklist_checklist_item_path(@checklist, checklist_item.id), method: :delete, data: { confirm: "Are you sure?" } do
             i.fa.fa-trash

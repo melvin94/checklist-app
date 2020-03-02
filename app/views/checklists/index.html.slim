@@ -1,9 +1,26 @@
-- @checklists.each do |checklist|
-  .div class="index_row clearfix"
-    h2 class="checklist_title"
-      = link_to checklist.title, checklist
-    p class="checklist_sub_title"
-      = checklist.description
+h1.page_title Checklists
 
-.div class="links"
-  = link_to 'New Checklist', new_checklist_path
+table.steelBlueCols
+  thead
+      tr
+      th Checklist ID
+      th Description
+      th Steps
+      th Actions
+
+  - @checklists.each do |checklist|
+    tr
+        td = checklist.id
+        td
+          .checklist_title
+            = checklist.title
+          = checklist.description
+        td = checklist.checklist_items.count
+        td 
+            => link_to checklist_path(checklist) do
+                i.fa.fa-eye
+            => link_to edit_checklist_path(checklist) do
+                i.fa.fa-edit
+            => link_to checklist, data: { confirm: 'Are you sure?' }, method: :delete do
+                i.fa.fa-trash
+
