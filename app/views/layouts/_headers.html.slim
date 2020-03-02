@@ -1,6 +1,8 @@
 
 .container
-    .logo-image = image_tag("logo.png")
+    .logo-image
+        = link_to users_path do
+            = image_tag("logo.png")
     .log-out-links
         = link_to "Log Out", logout_path, method: :delete, data: { confirm: 'Are you sure?' }
         br

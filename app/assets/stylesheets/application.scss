@@ -69,6 +69,7 @@ body {
     font-weight: 700;
     font-size: auto;
     color: white;
+    text-align: center;
 }
 
 .checklist_title {
@@ -337,55 +338,133 @@ input[type="submit"] {
 }
 
 .logo-image {
+    padding-right: 0.5em;
+    float: left;
+
     img {
         width: 50px;
         height: auto;
     }
 
-    padding-right: 0.5em;
+    a:hover {
+        display: block;
+        background-color: transparent;
 
-    float: left;
+        img {
+            opacity: 0.5;
+        }
+    }
+
 }
 
 /*//////////////////////////////////////////////////////////////////
 [ Table ]*/
-table {
-    border-collapse: collapse;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    table-layout: fixed;
+// table {
+//     border-collapse: collapse;
+//     border-radius: 10px;
+//     overflow: hidden;
+//     text-align: center;
+//     table-layout: fixed;
+//     width: 100%;
+//     height: 100%;
+// }
+
+// thead {
+//     color: white;
+//     background: gray;
+// }
+
+// tbody {
+//     background: rgba(255, 255, 255, 1.0);
+// }
+
+// tbody tr:hover {
+//     color: #555555;
+//     background: #f5f5f5;
+//     cursor: default;
+// }
+
+// th,
+// td {
+//     padding: 1em 1em;
+//     height: 50px;
+//     border-bottom: 1px solid #ddd;
+// }
+
+// table td:first-child {
+//     text-align: left;
+// }
+
+// table th:first-child {
+//     text-align: left;
+//     margin: 100px;
+// }
+
+/* Table 2*/
+table.steelBlueCols {
+    border: 4px solid #555555;
+    background-color: #555555;
     width: 100%;
-    height: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    a {
+        color: white;
+    }
 }
 
-thead {
-    color: white;
-    background: gray;
+table.steelBlueCols td {
+    border: 1px solid #FFFFFF;
+    padding: 5px 10px;
 }
 
-tbody {
-    background: rgba(255, 255, 255, 1.0);
+table.steelBlueCols tbody td {
+    font-size: 11px;
+    // font-weight: bold;
+    color: #FFFFFF;
 }
 
-tbody tr:hover {
-    color: #555555;
-    background: #f5f5f5;
+table.steelBlueCols tbody tr:hover {
+    opacity: 75%;
     cursor: default;
 }
 
-th,
-td {
-    padding: 1em 1em;
-    height: 50px;
-    border-bottom: 1px solid #ddd;
+table.steelBlueCols tr:nth-child(even) {
+    background: #398AA4;
 }
 
-table td:first-child {
-    text-align: left;
+table.steelBlueCols th {
+    background: #398AA4;
+    border-bottom: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+    border-top: 4px solid #555555;
 }
 
-table th:first-child {
-    text-align: left;
-    margin: 100px;
+table.steelBlueCols thead th {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #398AA4;
+}
+
+table.steelBlueCols thead th:first-child {
+    border-left: none;
+}
+
+table.steelBlueCols tfoot td {
+    font-size: 13px;
+}
+
+table.steelBlueCols tfoot .links {
+    text-align: right;
+}
+
+table.steelBlueCols tfoot .links a {
+    display: inline-block;
+    background: #FFFFFF;
+    color: #398AA4;
+    padding: 2px 8px;
+    border-radius: 5px;
 }

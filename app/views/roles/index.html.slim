@@ -1,6 +1,6 @@
-h1 Listing roles
+h1.page_title Roles
 
-table
+table.steelBlueCols
   thead
     tr
       th Title
@@ -35,7 +35,3 @@ table
             i.fa.fa-edit
           => link_to role, data: { confirm: 'Are you sure?' }, method: :delete do
             i.fa.fa-trash
-
-br
-
-= link_to 'New Role', new_role_path

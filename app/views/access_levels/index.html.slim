@@ -1,6 +1,6 @@
-h1 Listing access_levels
+h1.page_title Access Levels
 
-table
+table.steelBlueCols
   thead
     tr
       th Level
@@ -19,7 +19,3 @@ table
             i.fa.fa-edit
           => link_to access_level, data: { confirm: 'Are you sure?' }, method: :delete do
             i.fa.fa-trash
-
-br
-
-= link_to 'New Access level', new_access_level_path
