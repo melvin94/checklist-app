@@ -212,3 +212,26 @@ tech_support_user = User.create!(
   role_id: "1",
   access_level_id: "1",
 )
+
+tech_support_user = User.create!(
+  first_name: "Not",
+  last_name: "Saskia",
+  email: "notsaskia@sakiadoesthings.com",
+  password: "123456",
+  password_confirmation: "123456",
+  role_id: "13",
+  access_level_id: "4",
+)
+
+5.times do |index|
+  Checklist.create!(
+    title: "Some title #{index}",
+    description: "Some description #{index}",
+  )
+end
+
+Checklist.all.each do |checklist|
+  5.times do |index|
+    checklist.checklist_items.create!(content: "Step #{index}")
+  end
+end
