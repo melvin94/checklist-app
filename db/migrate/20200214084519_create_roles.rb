@@ -10,6 +10,7 @@ class CreateRoles < ActiveRecord::Migration[6.0]
       t.boolean :audit_user
       t.boolean :primary
       t.boolean :admin
+      t.boolean :support
 
       t.timestamps
     end

@@ -1,0 +1,2 @@
+class ChecklistItemYesOrNo < ChecklistItem
+end

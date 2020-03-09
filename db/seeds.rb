@@ -232,6 +232,6 @@ end
 
 Checklist.all.each do |checklist|
   5.times do |index|
-    checklist.checklist_items.create!(content: "Step #{index}")
+    checklist.checklist_items.create!(description: "Step #{index}", completed: false, type: "ChecklistItemTask")
   end
 end

@@ -1,6 +1,6 @@
 .div.row.clearfix
     .div.complete
-        = link_to complete_checklist_checklist_item_path(@checklist, checklist_item.id), method: :patch do
+        => link_to complete_checklist_checklist_item_path(checklist, checklist_item.id, result: "Done"), method: :patch do
             - if checklist_item.completed
                 i.fa.fa-check style="opacity: 0.4;"
             - else
@@ -8,11 +8,25 @@
     .div.checklist_item
         - if checklist_item.completed
             p style="opacity: 0.4;"
-                strike = checklist_item.content
+                strike = checklist_item.description
+                = ": #{checklist_item.result}"
         - else
-            p = checklist_item.content
+            p
+                = checklist_item.description
+                = ": #{checklist_item.result}"
+                
+    .div.checklist_item_options
+        - if checklist_item.type == "ChecklistItemTask"
+            => link_to "Done", checklist_checklist_item_path(checklist, checklist_item.id, result: "Done"), method: :patch
+        - if checklist_item.type == "ChecklistItemYesOrNo"
+            => link_to "Yes", checklist_checklist_item_path(checklist, checklist_item.id, result: "Yes"), method: :patch
+            => link_to "No", checklist_checklist_item_path(checklist, checklist_item.id, result: "No"), method: :patch
+        - if checklist_item.type == "ChecklistItemRating"
+            - 11.times do |number|
+                => link_to "#{number}", checklist_checklist_item_path(checklist, checklist_item.id, result: "#{number}"), method: :patch
+
     .div.trash
-        => link_to edit_checklist_checklist_item_path(@checklist, checklist_item.id) do
+        => link_to edit_checklist_checklist_item_path(checklist, checklist_item.id) do
             i.fa.fa-edit
-        => link_to checklist_checklist_item_path(@checklist, checklist_item.id), method: :delete, data: { confirm: "Are you sure?" } do
+        => link_to checklist_checklist_item_path(checklist, checklist_item.id), method: :delete, data: { confirm: "Are you sure?" } do
             i.fa.fa-trash

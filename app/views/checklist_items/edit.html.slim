@@ -18,9 +18,9 @@ p.checklist_sub_title
           .div.checklist_item
               - if checklist_item.completed
                   p style="opacity: 0.4;"
-                      strike = checklist_item.content
+                      strike = checklist_item.description
               - else
-                  p = checklist_item.content
+                  p = checklist_item.description
           .div.trash
               => link_to edit_checklist_checklist_item_path(@checklist, checklist_item.id) do
                   i.fa.fa-edit
@@ -34,9 +34,9 @@ p.checklist_sub_title
                 i.fa.fa-circle-thin
 
           .div id="form-edit"
-            = form_for([@checklist, @checklist_item]) do |f|
-                = f.text_field :content
+            = form_for([@checklist, checklist_item.becomes(ChecklistItem)]) do |f|
+                = f.text_field :description
                 = f.submit "Update"
 
           .div.trash
-            = link_to "cancel", checklist_path(@checklist)
+            = link_to "Cancel", checklist_path(@checklist)

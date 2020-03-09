@@ -1,0 +1,2 @@
+class ChecklistItemTask < ChecklistItem
+end

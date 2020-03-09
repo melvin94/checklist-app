@@ -11,7 +11,8 @@ p.checklist_sub_title
       i.fa.fa-trash
 
 .div id="checklist_items_wrapper"
-  = render @checklist.checklist_items
+  - @checklist.checklist_items.each do |checklist_item|
+    = render partial: "checklist_items/checklist_item", locals: { checklist: @checklist, checklist_item: checklist_item }
   .div id="form"
     = render "checklist_items/form"
 
