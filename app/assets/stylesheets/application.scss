@@ -130,7 +130,7 @@ body {
         }
 
         .checklist_item {
-            width: 80%;
+            width: 60%;
             float: left;
 
             p {
@@ -138,6 +138,18 @@ body {
                 padding: 1em;
                 color: $dark;
                 font-weight: 100;
+            }
+        }
+
+        .checklist_item_options {
+            width: 20%;
+            float: left;
+            text-align: center;
+            border-left: 1px solid rgba(250, 250, 250, .3);
+            padding: 1em 0;
+
+            a {
+                color: white;
             }
         }
 
@@ -201,7 +213,7 @@ body {
     }
 
     #form-edit {
-        width: 80%;
+        width: 60%;
 
         input[type="text"] {
             width: 75%;
