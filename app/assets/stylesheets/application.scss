@@ -65,6 +65,18 @@ body {
     padding: 1em 1em;
 }
 
+.container_transparent {
+    width: 100%;
+    min-width: 750px;
+    max-width: 1050px;
+    background: transparent;
+    margin: 3em auto 0 auto;
+    border-radius: 7px;
+    -webkit-box-shadow: 0 0 4px 3px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, .03);
+    padding: 1em 1em;
+}
+
 .page_title {
     font-weight: 700;
     font-size: auto;
@@ -117,6 +129,7 @@ body {
 
 #checklist_items_wrapper {
     .row {
+        margin: 0.25em;
         width: 100%;
         border-top: 1px solid rgba(250, 250, 250, .3);
         border-bottom: 1px solid rgba(250, 250, 250, .3);
