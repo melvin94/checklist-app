@@ -1,7 +1,35 @@
-h1.checklist_title Editing checklist
+/ h1.checklist_title Editing checklist
 
-div.forms
-    = render 'form', checklist: @checklist
+/ div.forms
+/     = render 'form', checklist: @checklist
 
-div.links
-    = link_to 'Cancel', checklists_path
+/ div.links
+/     = link_to 'Cancel', checklists_path
+
+p#notice = notice
+
+.div id="form-edit"
+    = form_for @checklist do |f|
+        - if @checklist.errors.any?
+            #error_explanation
+            h2 = "#{pluralize(@checklist.errors.count, "error")} prohibited this checklist from being saved:"
+            ul
+                - @checklist.errors.full_messages.each do |message|
+                li = message
+
+        .field.h2.checklist_title
+            = f.label :title
+            = f.text_field :title
+        .field.p.checklist_sub_title
+            = f.label :description
+            = f.text_area :description
+        .actions
+            => f.submit  
+            = link_to "Cancel", checklist_path(@checklist)
+
+.div id="checklist_items_wrapper"
+  - @checklist.checklist_items.each do |checklist_item|
+    = render partial: "checklist_items/checklist_item", locals: { checklist: @checklist, checklist_item: checklist_item }
+  .div id="form"
+    = render "checklist_items/form"
+

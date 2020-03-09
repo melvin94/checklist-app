@@ -69,6 +69,7 @@ class ChecklistsController < ApplicationController
   def set_checklist
     @checklist = Checklist.find(params[:id])
     authorize @checklist
+    @checklist_items = @checklist.checklist_items.order(:id)
   end
 
   # Only allow a list of trusted parameters through.
