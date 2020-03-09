@@ -231,7 +231,9 @@ tech_support_user = User.create!(
 end
 
 Checklist.all.each do |checklist|
-  5.times do |index|
-    checklist.checklist_items.create!(description: "Step #{index}", completed: false, type: "ChecklistItemTask")
+  3.times do |index|
+    checklist.checklist_items.create!(description: "Do the Step #{index} thing", completed: false, type: "ChecklistItemTask")
+    checklist.checklist_items.create!(description: "Is the Step #{index} thing a certain way?", completed: false, type: "ChecklistItemYesOrNo")
+    checklist.checklist_items.create!(description: "Rate the Step #{index} thing's thing", completed: false, type: "ChecklistItemRating")
   end
 end
