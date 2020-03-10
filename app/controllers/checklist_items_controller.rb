@@ -46,6 +46,7 @@ class ChecklistItemsController < ApplicationController
 
   def set_checklist
     @checklist = Checklist.find(params[:checklist_id])
+    @checklist_items = @checklist.checklist_items.order(:id)
   end
 
   def set_checklist_item

@@ -16,7 +16,7 @@ p.checklist_sub_title
     .div.trash
       h4 = "Actions"
 
-  - @checklist.checklist_items.each do |checklist_item|
+  - @checklist_items.each do |checklist_item|
     - if checklist_item != @checklist_item
       .div.row.clearfix
           .div.complete
