@@ -1,7 +1,7 @@
 .div.row.clearfix
     .div.complete
         - if checklist_item.completed
-            => link_to complete_checklist_checklist_item_path(checklist, checklist_item.id, result: "Done"), method: :patch do
+            => link_to complete_checklist_checklist_item_path(checklist, checklist_item.id), method: :patch do
                 i.fa.fa-check style="opacity: 0.4;"
         - else
             i.fa.fa-circle-thin
