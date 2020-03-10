@@ -1,10 +1,14 @@
 / p#notice = notice
 
 h2.checklist_title_actions
-  => link_to edit_checklist_path(@checklist) do
-      i.fa.fa-edit
-  => link_to @checklist, data: { confirm: 'Are you sure?' }, method: :delete do
-      i.fa.fa-trash
+  .left
+    => link_to checklists_path do
+      i.fa.fa-chevron-circle-left
+  .right
+    => link_to edit_checklist_path(@checklist) do
+        i.fa.fa-edit
+    => link_to @checklist, data: { confirm: 'Are you sure?' }, method: :delete do
+        i.fa.fa-trash
 h2.checklist_title
   => @checklist.title
 p.checklist_sub_title

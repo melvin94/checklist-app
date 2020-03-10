@@ -111,7 +111,6 @@ body {
 }
 
 .checklist_title_actions {
-    float: right;
     font-weight: 700;
     font-size: auto;
     text-transform: uppercase;
@@ -126,6 +125,14 @@ body {
         &:hover {
             opacity: 0.4;
         }
+    }
+
+    .right {
+        float: right;
+    }
+
+    .left {
+        float: left;
     }
 }
 
