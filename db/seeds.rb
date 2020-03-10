@@ -225,8 +225,8 @@ tech_support_user = User.create!(
 
 5.times do |index|
   Checklist.create!(
-    title: "Some title #{index}",
-    description: "Some description #{index}",
+    title: "Checklist title #{index}",
+    description: "Checklist description #{index}",
   )
 end
 
