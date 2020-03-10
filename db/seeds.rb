@@ -223,6 +223,20 @@ tech_support_user = User.create!(
   access_level_id: "4",
 )
 
+AccessLevel.all.each_with_index do |access_level, index2|
+  Role.all.each_with_index do |role, index1|
+    User.create!(
+      first_name: "Smith",
+      last_name: "#{index2}-#{index1}",
+      email: "smith#{index2}-#{index1}@email.com",
+      password: "123456",
+      password_confirmation: "123456",
+      role_id: role.id,
+      access_level_id: access_level.id,
+    )
+  end
+end
+
 5.times do |index|
   Checklist.create!(
     title: "Checklist title #{index}",
