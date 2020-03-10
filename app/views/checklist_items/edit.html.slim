@@ -6,7 +6,16 @@ p.checklist_sub_title
   => @checklist.description
 
 .div id="checklist_items_wrapper"
-  / = render @checklist.checklist_items
+  .div.row.clearfix
+    .div.complete
+      h4 = "Status"
+    .div.checklist_item_heading
+      h4 = "Steps"
+    .div.checklist_item_options
+      h4 = "Options"
+    .div.trash
+      h4 = "Actions"
+
   - @checklist.checklist_items.each do |checklist_item|
     - if checklist_item != @checklist_item
       .div.row.clearfix

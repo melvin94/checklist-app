@@ -110,6 +110,25 @@ body {
     }
 }
 
+.checklist_title_actions {
+    float: right;
+    font-weight: 700;
+    font-size: auto;
+    text-transform: uppercase;
+    color: white;
+    margin-right: 0.5em;
+
+    a {
+        text-decoration: none;
+        color: white;
+        transition: all .4s ease-in-out;
+
+        &:hover {
+            opacity: 0.4;
+        }
+    }
+}
+
 .checklist_sub_title {
     margin: 0 0 3em 0;
     text-align: center;
@@ -128,6 +147,13 @@ body {
 }
 
 #checklist_items_wrapper {
+    h4 {
+        margin: 0;
+        padding: 0.5em;
+        color: $dark;
+        font-weight: 500;
+    }
+
     .row {
         margin: 0.25em;
         width: 100%;
@@ -152,6 +178,18 @@ body {
                 color: $dark;
                 font-weight: 100;
             }
+        }
+
+        .checklist_item_heading {
+            width: 60%;
+            float: left;
+            padding: 1em 0;
+        }
+
+        .checklist_item_form_heading {
+            width: 60%;
+            float: left;
+            padding: 0.5em 0;
         }
 
         .checklist_item_options {
@@ -190,11 +228,21 @@ body {
 
     #form {
         margin-top: 2em;
-        padding: 0 5%;
 
         input[type="text"] {
-            width: 72%;
-            margin-right: 2%;
+            width: 96%;
+            margin-left: 2%;
+            display: inline-block;
+            outline: none;
+            background: rgba(250, 250, 250, .4);
+            border: none;
+            height: 40px;
+            border-radius: 4px;
+            padding: 1em 2em;
+        }
+
+        select {
+            width: 90%;
             display: inline-block;
             outline: none;
             background: rgba(250, 250, 250, .4);
@@ -205,12 +253,12 @@ body {
         }
 
         input[type="submit"] {
+            width: 80%;
             background: rgba(250, 250, 250, .4);
             outline: none;
             border: none;
             height: 40px;
             border-radius: 4px;
-            width: 25%;
             display: inline-block;
             transition: all .4s ease-in-out;
             cursor: pointer;

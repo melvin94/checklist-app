@@ -1,16 +1,26 @@
 / p#notice = notice
 
+h2.checklist_title_actions
+  => link_to edit_checklist_path(@checklist) do
+      i.fa.fa-edit
+  => link_to @checklist, data: { confirm: 'Are you sure?' }, method: :delete do
+      i.fa.fa-trash
 h2.checklist_title
   => @checklist.title
 p.checklist_sub_title
   => @checklist.description
 
-  => link_to edit_checklist_path(@checklist) do
-      i.fa.fa-edit
-  => link_to @checklist, data: { confirm: 'Are you sure?' }, method: :delete do
-      i.fa.fa-trash
-
 .div id="checklist_items_wrapper"
+  .div.row.clearfix
+    .div.complete
+      h4 = "Status"
+    .div.checklist_item_heading
+      h4 = "Steps"
+    .div.checklist_item_options
+      h4 = "Options"
+    .div.trash
+      h4 = "Actions"
+
   - @checklist_items.each do |checklist_item|
     = render partial: "checklist_items/checklist_item", locals: { checklist: @checklist, checklist_item: checklist_item }
   .div id="form"

@@ -1,4 +1,9 @@
 = form_for([@checklist, @checklist.checklist_items.build]) do |f|
-    = f.text_field :description, placeholder: "New Checklist Item"
-    = f.select :type, {"Task": "ChecklistItemTask", "Yes/No": "ChecklistItemYesOrNo", "Rating": "ChecklistItemRating"}, include_blank: true
-    = f.submit "Add Checklist Item"
+  .div.row.clearfix
+    .div.complete
+    .div.checklist_item_form_heading
+        = f.text_field :description, placeholder: "New Checklist Item"
+    .div.checklist_item_options
+        = f.select :type, {"Task": "ChecklistItemTask", "Yes/No": "ChecklistItemYesOrNo", "Rating": "ChecklistItemRating"}
+    .div.trash
+        = f.submit "Add Step"
