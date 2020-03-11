@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 access_titles = [
-  "corporate",
-  "region",
-  "hotel",
-  "department",
+  "Corporate",
+  "Region",
+  "Hotel",
+  "Department",
 ]
 4.times do |access_level|
   AccessLevel.create!(level: access_level, title: access_titles[access_level])
