@@ -1,26 +1,30 @@
-h1.page_title Checklists
+.profile
+  .banner_background
+    .banner
+      h1 Checklists
 
-table.steelBlueCols
-  thead
+p
+  table.steelBlueCols
+    thead
+        tr
+        th Checklist ID
+        th Description
+        th Steps
+        th Actions
+
+    - @checklists.each do |checklist|
       tr
-      th Checklist ID
-      th Description
-      th Steps
-      th Actions
-
-  - @checklists.each do |checklist|
-    tr
-        td = checklist.id
-        td
-          .checklist_title
-            = checklist.title
-          = checklist.description
-        td = checklist.checklist_items.count
-        td 
-            => link_to checklist_path(checklist) do
-                i.fa.fa-eye
-            => link_to edit_checklist_path(checklist) do
-                i.fa.fa-edit
-            => link_to checklist, data: { confirm: 'Are you sure?' }, method: :delete do
-                i.fa.fa-trash
+          td = checklist.id
+          td
+            .checklist_title
+              = checklist.title
+            = checklist.description
+          td = checklist.checklist_items.count
+          td 
+              => link_to checklist_path(checklist) do
+                  i.fa.fa-eye
+              => link_to edit_checklist_path(checklist) do
+                  i.fa.fa-edit
+              => link_to checklist, data: { confirm: 'Are you sure?' }, method: :delete do
+                  i.fa.fa-trash
 
