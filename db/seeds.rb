@@ -213,7 +213,9 @@ tech_support_user = User.create!(
   access_level_id: "1",
 )
 
-tech_support_user = User.create!(
+tech_support_user.profile_picture.attach(io: File.open("app/assets/images/tech_support_default.jpg"), filename: "tech_support_default.jpg")
+
+User.create(
   first_name: "Not",
   last_name: "Saskia",
   email: "notsaskia@sakiadoesthings.com",
