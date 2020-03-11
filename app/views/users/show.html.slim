@@ -1,14 +1,11 @@
-.forms
-    .field
-        'First Name: 
-        = @user.first_name
-    .field
-        'Last Name: 
-        = @user.last_name
-    .field
-        'Email: 
-        = @user.email
-    .field
-        'Role: 
-        = Role.find(@user.role_id).title
+.profile
+  .banner_background
+    .banner
+        = image_tag("default_profile_pic.png")
+        .text
+            h1 = "#{@user.first_name} #{@user.last_name}"
+            p = "Email: #{@user.email}"
+            p = "Role: #{@user.role.title}"
+            p = "Access Level: #{@user.access_level.title}"
+
 

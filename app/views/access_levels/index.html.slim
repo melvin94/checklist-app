@@ -1,21 +1,25 @@
-h1.page_title Access Levels
+.profile
+  .banner_background
+    .banner
+        h1 Access Levels
 
-table.steelBlueCols
-  thead
-    tr
-      th Level
-      th Title
-      th Actions
-
-  tbody
-    - @access_levels.each do |access_level|
+p
+  table.steelBlueCols
+    thead
       tr
-        td = access_level.level
-        td = access_level.title
-        td
-          => link_to access_level do 
-            i.fa.fa-eye
-          => link_to edit_access_level_path(access_level) do
-            i.fa.fa-edit
-          => link_to access_level, data: { confirm: 'Are you sure?' }, method: :delete do
-            i.fa.fa-trash
+        th Level
+        th Title
+        th Actions
+
+    tbody
+      - @access_levels.each do |access_level|
+        tr
+          td = access_level.level
+          td = access_level.title
+          td
+            => link_to access_level do 
+              i.fa.fa-eye
+            => link_to edit_access_level_path(access_level) do
+              i.fa.fa-edit
+            => link_to access_level, data: { confirm: 'Are you sure?' }, method: :delete do
+              i.fa.fa-trash

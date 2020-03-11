@@ -1,36 +1,42 @@
-/ p#notice = notice
+.profile
+  .banner_background
+    .banner
+      h1 = @role.title
 
-p
-  strong Title:
-  = @role.title
-p
-  strong Checklist user:
-  = @role.checklist_user
-p
-  strong Checklist manager:
-  = @role.checklist_manager
-p
-  strong User manager:
-  = @role.user_manager
-p
-  strong Organization manager:
-  = @role.organization_manager
-p
-  strong Audit manager:
-  = @role.audit_manager
-p
-  strong Audit user:
-  = @role.audit_user
-p
-  strong Primary:
-  = @role.primary
-p
-  strong Admin:
-  = @role.admin
-p
-  strong Support:
-  = @role.support
+  p
+    .table
+      table.steelBlueCols
+        thead
+          tr
+            th Permissions
+            th Assigned
 
-=> link_to 'Edit', edit_role_path(@role)
-'|
-=< link_to 'Back', roles_path
+        tbody
+          tr
+            td = "Checklist user"
+            td = @role.checklist_user ? "✔" : "✘" 
+          tr
+            td = "Checklist manager"
+            td = @role.checklist_manager ? "✔" : "✘" 
+          tr
+            td = "User manager"
+            td = @role.user_manager ? "✔" : "✘" 
+          tr
+            td = "Organization manager"
+            td = @role.organization_manager ? "✔" : "✘" 
+          tr
+            td = "Audit manager"
+            td = @role.audit_manager ? "✔" : "✘" 
+          tr
+            td = "Audit user"
+            td = @role.audit_user ? "✔" : "✘" 
+          tr
+            td = "Primary"
+            td = @role.primary ? "✔" : "✘" 
+          tr
+            td = "Admin"
+            td = @role.admin ? "✔" : "✘" 
+          tr
+            td = "Support"
+            td = @role.support ? "✔" : "✘" 
+
