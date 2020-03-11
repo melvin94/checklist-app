@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :rememberable, :validatable
 
+  has_one_attached :profile_picture
+
   belongs_to :access_level
   belongs_to :role
 

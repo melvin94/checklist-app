@@ -5,7 +5,10 @@
           => link_to users_path do
             i.fa.fa-chevron-circle-left style="float: right;"
         .user_img
-          = image_tag("default_profile_pic.png")
+          - if @user.profile_picture.attached?
+            = image_tag(@user.profile_picture)
+          - else
+            = image_tag("default_profile_pic.png")
         .text
             h1
               => "#{@user.first_name} #{@user.last_name}"

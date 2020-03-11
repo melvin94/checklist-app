@@ -14,6 +14,9 @@
             = f.label :last_name
             = f.text_field :last_name
         .field
+            = f.label :profile_picture
+            = f.file_field :profile_picture
+        .field
             = f.label :role_id
             = f.collection_select :role_id, Role.all, :id, :title, include_blank: true
         .field
