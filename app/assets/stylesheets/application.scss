@@ -63,6 +63,10 @@ body {
     -webkit-box-shadow: 0 0 4px 3px rgba(0, 0, 0, .3);
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, .03);
     padding: 1em 1em;
+
+    // background-image: url("banner_background.png"),
+    //     linear-gradient(to right, rgb(52, 123, 190), rgba(52, 190, 137, 0.5));
+    // background-blend-mode: overlay;
 }
 
 .container_transparent {
@@ -371,13 +375,15 @@ body {
         color: white;
         border-radius: 5px;
 
-        img {
-            vertical-align: middle;
-            margin-right: 10px;
-            width: 150px;
-            height: auto;
-            float: left;
-            border-radius: 50%;
+        .user_img {
+            img {
+                vertical-align: middle;
+                margin-right: 10px;
+                width: 150px;
+                height: auto;
+                float: left;
+                border-radius: 50%;
+            }
         }
 
         .text {
@@ -616,7 +622,7 @@ input[type="submit"] {
 /* Table 2*/
 table.steelBlueCols {
     border: 4px solid #555555;
-    background-color: #555555;
+    background-color: #5555557c;
     width: 100%;
     text-align: center;
     border-collapse: collapse;
@@ -625,6 +631,10 @@ table.steelBlueCols {
     a {
         color: white;
     }
+
+    background-image: url("banner_background.png"),
+    linear-gradient(rgba(52, 123, 190, 1.0), rgba(52, 190, 137, 0.95));
+    background-blend-mode: overlay;
 }
 
 table.steelBlueCols td {
@@ -643,15 +653,23 @@ table.steelBlueCols tbody tr:hover {
     cursor: default;
 }
 
-table.steelBlueCols tr:nth-child(even) {
-    background: #398AA4;
-}
+// table.steelBlueCols tr:nth-child(even) {
+//     background: #398AA47c;
+
+//     background-image: url("banner_background.png"),
+//         linear-gradient(rgba(52, 123, 190, 1.0), rgba(52, 190, 137, 0.95));
+//     background-blend-mode: overlay;
+// }
 
 table.steelBlueCols th {
-    background: #398AA4;
+    background: #398AA47c;
     border-bottom: 2px solid #FFFFFF;
     border-right: 2px solid #FFFFFF;
     border-top: 4px solid #555555;
+
+    background-image: url("banner_background.png"),
+        linear-gradient(rgb(52, 123, 190), rgba(52, 190, 137, 0.5));
+    background-blend-mode: overlay;
 }
 
 table.steelBlueCols thead th {
