@@ -1,8 +1,35 @@
 .profile
   .banner_background
     .banner
-        h1 Users
+        h1 style="float: right;"
+            = link_to users_path(search: params[:search] == "true" ? "false" : "true") do
+                - if params[:search] == "true"
+                    i.fa.fa-search-minus
+                - else
+                    i.fa.fa-search-plus
+        h1
+            => "Users"
 
+        - if params[:search] == "true"
+            .container
+                = form_tag(users_path, method: :get) do
+                    .field
+                        = label_tag :first_name
+                        = text_field_tag :first_name, params[:first_name]
+                    .field
+                        = label_tag :last_name
+                        = text_field_tag :last_name, params[:last_name]
+                    .field
+                        = label_tag :role
+                        = collection_select :role, :title, Role.all, :title, :title, include_blank: true, selected: params[:role].nil? ? "" : params[:role][:title]
+                    .field
+                        = label_tag :access_level
+                        = collection_select :access_level, :title, AccessLevel.all, :title, :title, include_blank: true, selected: params[:access_level].nil? ? "" : params[:access_level][:title]
+                    .field
+                        = label_tag :email
+                        = text_field_tag :email, params[:email]
+                    .actions
+                        = submit_tag "Search"
 
 p
     table.steelBlueCols

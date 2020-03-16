@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.order(:id).paginate(page: params[:page], per_page: 10)
+    if params[:commit] == "Search"
+      @users = User
+        .where("first_name LIKE ?", "%#{params[:first_name]}%")
+        .where("last_name LIKE ?", "%#{params[:last_name]}%")
+        .where("email LIKE ?", "%#{params[:email]}%")
+        .joins(:access_level, :role).where("access_levels.title LIKE ? AND roles.title LIKE ?", "%#{params[:access_level][:title]}%", "%#{params[:role][:title]}%")
+    else
+      @users = User.all
+    end
+    @users = @users.order(:id).paginate(page: params[:page], per_page: 10)
   end
 
   def show
