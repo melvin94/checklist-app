@@ -718,28 +718,31 @@ table.steelBlueCols tfoot .links a {
 }
 
 .digg_pagination .disabled {
-    color: #999999;
-    border: 1px solid #dddddd;
+    background-color: #245c357c;
+    color: #dddddd;
+    border: 1px solid #398AA4;
 }
 
 .digg_pagination .current {
     font-style: normal;
     font-weight: bold;
-    background: #2e6ab1;
+    background: #398AA4;
     color: white;
-    border: 1px solid #2e6ab1;
+    border: 1px solid #398AA4;
 }
 
 .digg_pagination a {
+    background-color: #245c357c;
     text-decoration: none;
-    color: #105cb6;
-    border: 1px solid #9aafe5;
+    color: white;
+    border: 1px solid #398AA4;
 }
 
 .digg_pagination a:hover,
 .digg_pagination a:focus {
-    color: #000033;
-    border-color: #000033;
+    border-color: white;
+    color: white;
+    background-color: #398AA4;
 }
 
 .digg_pagination .page_info {
