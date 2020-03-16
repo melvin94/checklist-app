@@ -55,8 +55,11 @@ class ChecklistItemsController < ApplicationController
 
   def checklist_item_params
     if params[:checklist_item]
-      params[:checklist_item].permit(:description, :type)
+      params[:checklist_item].permit(:description, :type, :image)
     else
+      if @checklist_item.type == "ChecklistItemImage"
+        @checklist_item.image.attach(params[:image])
+      end
       { description: @checklist_item.description, type: @checklist_item.type, result: params[:result], completed: true }
     end
   end

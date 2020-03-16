@@ -4,6 +4,9 @@
     .div.checklist_item_form_heading
         = f.text_field :description, placeholder: "New Checklist Item"
     .div.checklist_item_options
-        = f.select :type, {"Task": "ChecklistItemTask", "Yes/No": "ChecklistItemYesOrNo", "Rating": "ChecklistItemRating"}
+        = f.select :type, { "Task": "ChecklistItemTask",
+                            "Yes/No": "ChecklistItemYesOrNo",
+                            "Rating": "ChecklistItemRating",
+                            "Image": "ChecklistItemImage"}
     .div.trash
         = f.submit "Add Step"

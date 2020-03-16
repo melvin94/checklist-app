@@ -10,12 +10,21 @@
             p style="opacity: 0.4;"
                 strike = checklist_item.description
                 = ": #{checklist_item.result}"
+            - if checklist_item.type == "ChecklistItemImage"
+                - if checklist_item.image.attached?
+                    .checklist_item_img
+                        = image_tag(checklist_item.image)
         - else
             p
                 = checklist_item.description
                 = ": #{checklist_item.result}"
                 
     .div.checklist_item_options
+        - if checklist_item.type == "ChecklistItemImage"
+            = form_tag(checklist_checklist_item_path(checklist, checklist_item.id, result: "Done"), method: :patch, multipart: true) do
+                = file_field_tag :image, accept: "image/jpeg", class: "upload"
+                = submit_tag "Upload"
+
         - if checklist_item.type == "ChecklistItemTask"
             => link_to "Done", checklist_checklist_item_path(checklist, checklist_item.id, result: "Done"), method: :patch
         - if checklist_item.type == "ChecklistItemYesOrNo"

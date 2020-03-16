@@ -368,6 +368,16 @@ body {
     }
 }
 
+.checklist_item_img img {
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 150px;
+    height: auto;
+    float: left;
+    // border-radius: 50%;
+}
+
 .profile {
     .banner {
         padding: 10px;
