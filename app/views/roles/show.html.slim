@@ -1,7 +1,10 @@
 .profile
   .banner_background
     .banner
-      h1 = @role.title
+      h1
+        = @role.title
+        => link_to roles_path do
+          i.fa.fa-chevron-circle-left style="float: right;"
 
   p
     .table

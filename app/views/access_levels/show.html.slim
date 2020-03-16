@@ -1,7 +1,10 @@
 .profile
   .banner_background
     .banner
-      h1 = "#{@access_level.title.capitalize()} Access Level"
+      h1
+        = "#{@access_level.title.capitalize()} Access Level"
+        => link_to roles_path do
+          i.fa.fa-chevron-circle-left style="float: right;"
 
   p
     .table
