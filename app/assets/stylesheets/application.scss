@@ -446,6 +446,13 @@ body {
     }
 }
 
+.plain-links {
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
 
 .forms {
     padding: 0 5%;

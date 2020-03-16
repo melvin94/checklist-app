@@ -2,11 +2,13 @@
   .banner_background
     .banner
         h1 style="float: right;"
-            = link_to users_path(search: !@search) do
-                - if @search
-                    => "Clear"
-                    i.fa.fa-search-minus
-                - else
+            - if @search
+                .plain-links
+                    = link_to users_path(search: !@search) do
+                        => "Clear"
+                        i.fa.fa-search-minus
+            - else
+                = link_to users_path(search: !@search) do
                     i.fa.fa-search-plus
         h1
             => "Users"
