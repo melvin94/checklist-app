@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def index
+    @search = false
+    if params[:search] == "true"
+      @search = true
+    end
     if params[:commit] == "Search"
+      @search = true
       @users = User
         .where("first_name LIKE ?", "%#{params[:first_name]}%")
         .where("last_name LIKE ?", "%#{params[:last_name]}%")

@@ -2,15 +2,15 @@
   .banner_background
     .banner
         h1 style="float: right;"
-            = link_to users_path(search: params[:search] == "true" ? "false" : "true") do
-                - if params[:search] == "true"
+            = link_to users_path(search: !@search) do
+                - if @search
                     i.fa.fa-search-minus
                 - else
                     i.fa.fa-search-plus
         h1
             => "Users"
 
-        - if params[:search] == "true"
+        - if @search
             .container
                 = form_tag(users_path, method: :get) do
                     .field
