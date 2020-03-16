@@ -649,8 +649,9 @@ table.steelBlueCols tbody td {
 }
 
 table.steelBlueCols tbody tr:hover {
-    opacity: 75%;
+    // opacity: 75%;
     cursor: default;
+    background-color: rgba(58, 175, 117, 0.555);
 }
 
 table.steelBlueCols tr:nth-child(even) {
