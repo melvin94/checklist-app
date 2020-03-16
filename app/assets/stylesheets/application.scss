@@ -622,7 +622,7 @@ input[type="submit"] {
 /* Table 2*/
 table.steelBlueCols {
     border: 4px solid #555555;
-    background-color: #5555557c;
+    background-color: #245c357c;
     width: 100%;
     text-align: center;
     border-collapse: collapse;
@@ -632,9 +632,9 @@ table.steelBlueCols {
         color: white;
     }
 
-    background-image: url("banner_background.png"),
-    linear-gradient(rgba(52, 123, 190, 1.0), rgba(52, 190, 137, 0.95));
-    background-blend-mode: overlay;
+    // background-image: url("banner_background.png"),
+    // linear-gradient(rgba(52, 123, 190, 1.0), rgba(52, 190, 137, 0.95));
+    // background-blend-mode: overlay;
 }
 
 table.steelBlueCols td {
@@ -653,13 +653,13 @@ table.steelBlueCols tbody tr:hover {
     cursor: default;
 }
 
-// table.steelBlueCols tr:nth-child(even) {
-//     background: #398AA47c;
+table.steelBlueCols tr:nth-child(even) {
+    background: #398AA47c;
 
-//     background-image: url("banner_background.png"),
-//         linear-gradient(rgba(52, 123, 190, 1.0), rgba(52, 190, 137, 0.95));
-//     background-blend-mode: overlay;
-// }
+    // background-image: url("banner_background.png"),
+    //     linear-gradient(rgba(52, 123, 190, 1.0), rgba(52, 190, 137, 0.95));
+    // background-blend-mode: overlay;
+}
 
 table.steelBlueCols th {
     background: #398AA47c;
@@ -667,9 +667,9 @@ table.steelBlueCols th {
     border-right: 2px solid #FFFFFF;
     border-top: 4px solid #555555;
 
-    background-image: url("banner_background.png"),
-        linear-gradient(rgb(52, 123, 190), rgba(52, 190, 137, 0.5));
-    background-blend-mode: overlay;
+    // background-image: url("banner_background.png"),
+    //     linear-gradient(rgb(52, 123, 190), rgba(52, 190, 137, 0.5));
+    // background-blend-mode: overlay;
 }
 
 table.steelBlueCols thead th {
