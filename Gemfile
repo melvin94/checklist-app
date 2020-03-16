@@ -30,6 +30,7 @@ gem 'slim-rails'
 gem 'font-awesome-rails'
 gem 'devise'
 gem 'pundit'
+gem 'will_paginate'
 
 group :production do
   gem 'pg'

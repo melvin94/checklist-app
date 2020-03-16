@@ -3,6 +3,7 @@
     .banner
         h1 Users
 
+
 p
     table.steelBlueCols
         thead
@@ -28,3 +29,8 @@ p
                         => link_to user, data: { confirm: 'Are you sure?' }, method: :delete do
                             i.fa.fa-trash
 
+    .digg_pagination
+        = page_entries_info @users
+
+.digg_pagination
+    = will_paginate @users, container: false
