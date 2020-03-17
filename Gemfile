@@ -31,6 +31,7 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'pundit'
 gem 'will_paginate'
+gem 'faker'
 
 group :production do
   gem 'pg'
