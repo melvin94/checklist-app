@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "faker"
+
 access_titles = [
   "Corporate",
   "Region",
@@ -228,9 +230,9 @@ User.create(
 AccessLevel.all.each_with_index do |access_level, index2|
   Role.all.each_with_index do |role, index1|
     User.create!(
-      first_name: "Smith",
-      last_name: "#{index2}-#{index1}",
-      email: "smith#{index2}-#{index1}@email.com",
+      first_name: Faker::JapaneseMedia::OnePiece.unique.character.partition(" ").first,
+      last_name: Faker::JapaneseMedia::OnePiece.unique.character.partition(" ").first,
+      email: Faker::Internet.unique.safe_email,
       password: "123456",
       password_confirmation: "123456",
       role_id: role.id,
@@ -239,10 +241,10 @@ AccessLevel.all.each_with_index do |access_level, index2|
   end
 end
 
-5.times do |index|
+10.times do |index|
   Checklist.create!(
-    title: "Checklist title #{index}",
-    description: "Checklist description #{index}",
+    title: Faker::JapaneseMedia::OnePiece.unique.location,
+    description: Faker::JapaneseMedia::OnePiece.unique.quote,
   )
 end
 
@@ -251,5 +253,6 @@ Checklist.all.each do |checklist|
     checklist.checklist_items.create!(description: "Do the Step #{index} thing", completed: false, type: "ChecklistItemTask")
     checklist.checklist_items.create!(description: "Is the Step #{index} thing a certain way?", completed: false, type: "ChecklistItemYesOrNo")
     checklist.checklist_items.create!(description: "Rate the Step #{index} thing's thing", completed: false, type: "ChecklistItemRating")
+    checklist.checklist_items.create!(description: "Take a picture of Step #{index} thing's thing thing", completed: false, type: "ChecklistItemImage")
   end
 end
