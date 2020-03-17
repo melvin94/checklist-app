@@ -47,6 +47,10 @@ p
             .div id="form-edit"
               = form_for([@checklist, checklist_item.becomes(ChecklistItem)]) do |f|
                   = f.text_field :description
+                  = f.select :type, { "Task": "ChecklistItemTask",
+                                      "Yes/No": "ChecklistItemYesOrNo",
+                                      "Rating": "ChecklistItemRating",
+                                      "Image": "ChecklistItemImage"}
                   = f.submit "Update"
 
             .div.action
