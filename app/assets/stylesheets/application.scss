@@ -144,7 +144,7 @@ body {
     margin: 0 0 3em 0;
     text-align: center;
     font-size: auto;
-    color: $dark;
+    color: white;
     font-weight: 100;
 }
 
@@ -160,8 +160,7 @@ body {
 #checklist_items_wrapper {
     h4 {
         margin: 0;
-        padding: 0.5em;
-        color: $dark;
+        color: white;
         font-weight: 500;
     }
 
@@ -170,6 +169,7 @@ body {
         width: 100%;
         border-top: 1px solid rgba(250, 250, 250, .3);
         border-bottom: 1px solid rgba(250, 250, 250, .3);
+        border-radius: 10px;
 
         .complete {
             width: 10%;
@@ -177,24 +177,46 @@ body {
             text-align: center;
             border-right: 1px solid rgba(250, 250, 250, .3);
             padding: 1em 0;
+
+            a {
+                display: contents;
+                color: white;
+                transition: all .4s ease-in-out;
+
+                &:hover {
+                    color: black;
+                }
+
+                i:hover:before {
+                    content: "\f00d";
+                    padding: 5px;
+                    border-radius: 50%;
+                    background-color: #ff000049;
+                }
+            }
+
+
         }
 
         .checklist_item {
-            width: 60%;
+            width: 35%;
             float: left;
+            padding: 1em;
 
             p {
                 margin: 0;
-                padding: 1em;
-                color: $dark;
+                color: white;
                 font-weight: 100;
             }
         }
 
-        .checklist_item_heading {
-            width: 60%;
+        .checklist_item_result {
+            width: 15%;
             float: left;
+            text-align: center;
+            border-left: 1px solid rgba(250, 250, 250, .3);
             padding: 1em 0;
+            color: white;
         }
 
         .checklist_item_form_heading {
@@ -204,7 +226,7 @@ body {
         }
 
         .checklist_item_options {
-            width: 20%;
+            width: 30%;
             float: left;
             text-align: center;
             border-left: 1px solid rgba(250, 250, 250, .3);
@@ -212,10 +234,23 @@ body {
 
             a {
                 color: white;
+                background-color: #307946;
+                padding: 0.2em 0.5em;
+                display: inline-block;
+                margin-right: 1px;
+                border-radius: 5px;
+
+            }
+
+            a:hover {
+                text-decoration: none;
+                border-color: white;
+                color: white;
+                background-color: #398AA4;
             }
         }
 
-        .trash {
+        .action {
             width: 10%;
             float: left;
             text-align: center;
@@ -227,14 +262,6 @@ body {
             }
         }
 
-        i {
-            color: white;
-            transition: all .4s ease-in-out;
-
-            &:hover {
-                color: $dark;
-            }
-        }
     }
 
     #form {
@@ -369,13 +396,8 @@ body {
 }
 
 .checklist_item_img img {
-    vertical-align: middle;
-    margin-left: 10px;
-    margin-bottom: 10px;
     width: 150px;
     height: auto;
-    float: left;
-    // border-radius: 50%;
 }
 
 .profile {
