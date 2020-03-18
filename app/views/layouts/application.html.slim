@@ -8,10 +8,11 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
-    - flash.each do |name, msg|
+    - if flash.alert.blank? == false
       .flash
         span
-          = msg
+          - flash.each do |name, msg|
+            => msg
     - if current_user
       = render 'layouts/headers'
 
