@@ -14,6 +14,7 @@ class OverriddenDevise::SessionsController < Devise::SessionsController
       super
     else
       destroy
+      flash.alert = "Unable to log into the platform."
     end
   end
 
