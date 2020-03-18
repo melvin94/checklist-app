@@ -6,13 +6,13 @@ class UsersController < ApplicationController
     end
     if params[:commit] == "Search"
       @search = true
-      @users = User
+      @users = policy_scope(User)
         .where("first_name LIKE ?", "%#{params[:first_name]}%")
         .where("last_name LIKE ?", "%#{params[:last_name]}%")
         .where("email LIKE ?", "%#{params[:email]}%")
         .joins(:access_level, :role).where("access_levels.title LIKE ? AND roles.title LIKE ?", "%#{params[:access_level][:title]}%", "%#{params[:role][:title]}%")
     else
-      @users = User.all
+      @users = policy_scope(User)
     end
     @users = @users.order(:id).paginate(page: params[:page], per_page: 10)
   end

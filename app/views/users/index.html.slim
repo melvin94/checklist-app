@@ -45,19 +45,18 @@ p
             th Actions
 
         - @users.each do |user|
-            - if user.access_level.level >= current_user.access_level.level
-                tr
-                    td = "#{user.first_name} #{user.last_name}"
-                    td = user.role.title
-                    td = user.access_level.title
-                    td = user.email
-                    td 
-                        => link_to user_path(user) do
-                            i.fa.fa-eye
-                        => link_to edit_user_path(user) do
-                            i.fa.fa-edit
-                        => link_to user, data: { confirm: 'Are you sure?' }, method: :delete do
-                            i.fa.fa-trash
+            tr
+                td = "#{user.first_name} #{user.last_name}"
+                td = user.role.title
+                td = user.access_level.title
+                td = user.email
+                td 
+                    => link_to user_path(user) do
+                        i.fa.fa-eye
+                    => link_to edit_user_path(user) do
+                        i.fa.fa-edit
+                    => link_to user, data: { confirm: 'Are you sure?' }, method: :delete do
+                        i.fa.fa-trash
 
     .digg_pagination style="text-align: right;"
         = page_entries_info @users

@@ -14,4 +14,10 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     user.role.user_manager
   end
+
+  class Scope < Scope
+    def resolve
+      scope.joins(:access_level).where("access_levels.level >= ?", user.access_level.level)
+    end
+  end
 end
