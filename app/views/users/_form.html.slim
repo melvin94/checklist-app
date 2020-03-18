@@ -1,34 +1,67 @@
 .forms
     = form_for @user do |f|
         - if @user.errors.any?
-            / #error_explanation
-            = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-            / ul
-            /     - @user.errors.full_messages.each do |message|
-            /     li = message
-
+            .field
+                #error_explanation
+                    h2 = "*errors prohibited this user from being saved:"
+                    p
+                        ul
+                            - @user.errors.full_messages.each do |message|
+                                li = message
         .field
             = f.label :first_name
+            - if @user.errors[:first_name].blank? == false
+                #error_explanation
+                    - @user.errors[:first_name].each do |error|
+                        => "*#{error}"
             = f.text_field :first_name
         .field
             = f.label :last_name
+            - if @user.errors[:last_name].blank? == false
+                #error_explanation
+                    - @user.errors[:last_name].each do |error|
+                        => "*#{error}"
             = f.text_field :last_name
         .field
             = f.label :profile_picture
+            - if @user.errors[:profile_picture].blank? == false
+                #error_explanation
+                    - @user.errors[:profile_picture].each do |error|
+                        => "*#{error}"
             = f.file_field :profile_picture
         .field
             = f.label :role_id
+            - if @user.errors[:role].blank? == false
+                #error_explanation
+                    - @user.errors[:role].each do |error|
+                        => "*#{error}"
             = f.collection_select :role_id, Role.all, :id, :title, include_blank: true
         .field
             = f.label :access_level_id
+            - if @user.errors[:access_level].blank? == false
+                #error_explanation
+                    - @user.errors[:access_level].each do |error|
+                        => "*#{error}"
             = f.collection_select :access_level_id, AccessLevel.all, :id, :title, include_blank: true
         .field
             = f.label :email
+            - if @user.errors[:email].blank? == false
+                #error_explanation
+                    - @user.errors[:email].each do |error|
+                        => "*#{error}"
             = f.email_field :email
         .field
             = f.label :password
+            - if @user.errors[:password].blank? == false
+                #error_explanation
+                    - @user.errors[:password].each do |error|
+                        => "*#{error}"
             = f.password_field :password
         .field
             = f.label :password_confirmation
+            - if @user.errors[:password_confirmation].blank? == false
+                #error_explanation
+                    - @user.errors[:password_confirmation].each do |error|
+                        => "*#{error}"
             = f.password_field :password_confirmation
         .actions = f.submit
