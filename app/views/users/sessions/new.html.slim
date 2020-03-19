@@ -1,7 +1,7 @@
-.forms
-  .logo
-    .log_in
-      = image_tag("logo.svg")
+.logo
+  .log_in
+    = image_tag("logo.svg")
+.forms style="width: 50%;"
   h2 Log in
   = form_for(resource, as: resource_name, url: login_path) do |f|
     .field
