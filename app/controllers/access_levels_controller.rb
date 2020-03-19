@@ -4,7 +4,7 @@ class AccessLevelsController < ApplicationController
   # GET /access_levels
   # GET /access_levels.json
   def index
-    @access_levels = AccessLevel.all
+    @access_levels = AccessLevel.order(:level)
     authorize @access_levels
   end
 
