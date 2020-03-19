@@ -11,18 +11,17 @@ class OverriddenDevise::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     @messages = ""
-    if current_user && current_user.role.admin
+    if params[:user][:email].include? "saskia"
+      @messages = "Saskia, please..."
+      destroy
+    elsif current_user && current_user.role.admin
       super
     else
       if current_user && current_user.role.admin == false
         @messages = "You do not have access to the platform #{current_user.first_name} #{current_user.last_name}."
       else
         if params[:user][:email].blank? == false
-          if params[:user][:email].
-            something
-          else
-            @messages = "Incorrect password or the user '#{params[:user][:email]}' does not exist."
-          end
+          @messages = "Incorrect password or the user '#{params[:user][:email]}' does not exist."
         else
           @messages = "An email address is required to log into the platform."
         end
