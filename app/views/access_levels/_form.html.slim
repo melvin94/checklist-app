@@ -8,9 +8,12 @@
             li = message
 
     .field
-      = f.label :level
-      = f.number_field :level
-    .field
       = f.label :title
       = f.text_field :title
+    .field
+      = f.label :level
+      = f.number_field :level
     .actions = f.submit
+
+div.links
+    = link_to 'Back', access_levels_path
