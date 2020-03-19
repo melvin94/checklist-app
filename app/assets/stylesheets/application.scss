@@ -23,6 +23,7 @@ $dark: #1F7972;
 }
 
 html {
+    min-width: fit-content;
     min-height: 100%;
     overflow: overlay;
 }
@@ -40,6 +41,17 @@ body {
     background-position-x: center;
     background-size: cover;
     background-blend-mode: overlay;
+
+}
+
+.logo {
+    .log_in {
+        img {
+            float: right;
+            height: 300px;
+            width: auto;
+        }
+    }
 }
 
 .clearfix:before,
