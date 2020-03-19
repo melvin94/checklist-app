@@ -18,7 +18,11 @@ class OverriddenDevise::SessionsController < Devise::SessionsController
         @messages = "You do not have access to the platform #{current_user.first_name} #{current_user.last_name}."
       else
         if params[:user][:email].blank? == false
-          @messages = "Incorrect password or the user '#{params[:user][:email]}' does not exist."
+          if params[:user][:email].
+            something
+          else
+            @messages = "Incorrect password or the user '#{params[:user][:email]}' does not exist."
+          end
         else
           @messages = "An email address is required to log into the platform."
         end
