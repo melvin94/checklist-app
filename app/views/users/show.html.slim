@@ -1,9 +1,9 @@
 .profile
   .banner_background
     .banner
-        h1
+        h1 style="float: right;"
           => link_to users_path do
-            i.fa.fa-chevron-circle-left style="float: right;"
+            i.fa.fa-chevron-circle-left
         .user_img
           - if @user.profile_picture.attached?
             = image_tag(@user.profile_picture)
