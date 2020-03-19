@@ -10,12 +10,6 @@
 .div id="checklist_items_wrapper"
     .div id="form-edit-title"
         = form_for @checklist do |f|
-            - if @checklist.errors.any?
-                #error_explanation
-                h2 = "#{pluralize(@checklist.errors.count, "error")} prohibited this checklist from being saved:"
-                ul
-                    - @checklist.errors.full_messages.each do |message|
-                    li = message
 
             .field
                 / = f.label :title
@@ -25,6 +19,13 @@
                 / = f.label :description
                 p.checklist_subtitle
                     = f.text_area :description
+            - if @checklist.errors.any?
+              .field
+                #error_explanation style="display: inline-block;"
+                  h2 = "#{pluralize(@checklist.errors.count, "error")} prohibited this checklist from being saved:"
+                  ul
+                      - @checklist.errors.full_messages.each do |message|
+                        li = message
             .actions
                 => f.submit
             .field  

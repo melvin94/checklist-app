@@ -1,6 +1,13 @@
 / p#notice = notice
-
+/ - byebug
 .profile
+  .field style="text-align: center;"
+    - if flash[:errors] && !flash[:errors].empty?
+      #error_explanation style="display: inline-block;"
+        h2 = "#{pluralize(flash[:errors].count, "error")} prohibited the checklist item from being saved:"
+        ul
+          - flash[:errors].each do |message|
+            li = message
   .banner_background
     .banner
       h2.checklist_title_actions

@@ -4,6 +4,9 @@ class ChecklistItemsController < ApplicationController
 
   def create
     @checklist_item = @checklist.checklist_items.create(checklist_item_params)
+    if @checklist_item.errors.any?
+      flash[:errors] = @checklist_item.errors.full_messages
+    end
     redirect_to @checklist
   end
 
@@ -17,6 +20,7 @@ class ChecklistItemsController < ApplicationController
       redirect_to @checklist
     else
       if params[:result] == "Uploaded"
+        flash[:errors] = @checklist_item.errors.full_messages
         redirect_to @checklist
       else
         render "edit"
