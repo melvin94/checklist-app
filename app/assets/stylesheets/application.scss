@@ -15,7 +15,7 @@
  */
 @import "font-awesome";
 
-$white_opaque: rgba(250, 250, 250, .3);
+$white_opaque: rgba(250, 250, 250, 0.3);
 $dark: #1F7972;
 
 * {
@@ -28,12 +28,18 @@ html {
 }
 
 body {
-    background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-    background: -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-    background: -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-    background: -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-    background: linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+    // background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+    // background: -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+    // background: -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+    // background: -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+    // background: linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
     font-family: 'Lato', sans-serif;
+
+    background: url("logo.svg"), linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+    background-blend-mode: overlay;
 }
 
 .clearfix:before,
@@ -64,9 +70,7 @@ body {
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, .03);
     padding: 1em 1em;
 
-    // background-image: url("banner_background.png"),
-    //     linear-gradient(to right, rgb(52, 123, 190), rgba(52, 190, 137, 0.5));
-    // background-blend-mode: overlay;
+    background: linear-gradient(40deg, rgba(76, 184, 196, 0.95) 10%, rgba(234, 236, 198, 0.95) 100%);
 }
 
 .container_transparent {
