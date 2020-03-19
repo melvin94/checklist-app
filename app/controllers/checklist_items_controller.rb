@@ -51,6 +51,7 @@ class ChecklistItemsController < ApplicationController
 
   def set_checklist_item
     @checklist_item = @checklist.checklist_items.find(params[:id])
+    authorize @checklist_item, policy_class: ChecklistItemPolicy
   end
 
   def checklist_item_params
