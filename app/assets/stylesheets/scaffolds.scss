@@ -22,15 +22,18 @@ pre {
 
 a {
   color: #000;
+  border-radius: 4px;
+  padding: 4px;
 }
 
 a:visited {
-  color: #666;
+  color: black;
 }
 
 a:hover {
+  text-decoration: none;
   color: #fff;
-  background-color: #000;
+  background-color: #398AA4;
 }
 
 th {

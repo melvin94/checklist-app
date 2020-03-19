@@ -658,10 +658,10 @@ input[type="submit"] {
     img {
         width: 50px;
         height: auto;
+        display: inline-block;
     }
 
     a:hover {
-        display: block;
         background-color: transparent;
 
         img {
@@ -816,6 +816,7 @@ table.steelBlueCols tfoot .links a {
     background-color: #245c357c;
     color: #dddddd;
     border: 1px solid #398AA4;
+    border-radius: 5px;
 }
 
 .digg_pagination .current {
@@ -824,6 +825,7 @@ table.steelBlueCols tfoot .links a {
     background: #398AA4;
     color: white;
     border: 1px solid #398AA4;
+    border-radius: 5px;
 }
 
 .digg_pagination a {
