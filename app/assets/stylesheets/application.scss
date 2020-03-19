@@ -506,8 +506,18 @@ body {
     // color: white;
 
     a {
-        color: white;
+        padding: 2px;
+        color: $dark;
     }
+
+    a:hover {
+        color: white;
+        background-color: #398AA4;
+        border-radius: 2px;
+        text-decoration: none;
+    }
+
+
 }
 
 .header-links {
