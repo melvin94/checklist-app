@@ -16,7 +16,11 @@ class ChecklistItemsController < ApplicationController
     if @checklist_item.update(checklist_item_params)
       redirect_to @checklist
     else
-      render "edit"
+      if params[:result] == "Uploaded"
+        redirect_to @checklist
+      else
+        render "edit"
+      end
     end
   end
 
