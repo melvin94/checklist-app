@@ -10,20 +10,20 @@ class OverriddenDevise::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    @messages = ""
+    @alert_message = ""
     if params[:user][:email].include? "saskia"
-      @messages = "Saskia, please..."
+      @alert_message = "Saskia, please..."
       destroy
     elsif current_user && current_user.role.admin
       super
     else
       if current_user && current_user.role.admin == false
-        @messages = "You do not have access to the platform #{current_user.first_name} #{current_user.last_name}."
+        @alert_message = "You do not have access to the platform #{current_user.first_name} #{current_user.last_name}."
       else
         if params[:user][:email].blank? == false
-          @messages = "Incorrect password or the user '#{params[:user][:email]}' does not exist."
+          @alert_message = "Incorrect password or the user '#{params[:user][:email]}' does not exist."
         else
-          @messages = "An email address is required to log into the platform."
+          @alert_message = "An email address is required to log into the platform."
         end
       end
       destroy
@@ -33,7 +33,7 @@ class OverriddenDevise::SessionsController < Devise::SessionsController
   # DELETE /resource/sign_out
   def destroy
     super
-    flash.alert = @messages
+    flash.alert = @alert_message
   end
 
   # protected
