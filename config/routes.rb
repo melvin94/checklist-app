@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :checklist_items do
       member do
         patch :complete
+        patch :update_step
       end
     end
   end

@@ -18,4 +18,8 @@ class ChecklistItemPolicy < ApplicationPolicy
   def complete?
     user.role.checklist_user
   end
+
+  def update_step?
+    user.role.checklist_manager
+  end
 end

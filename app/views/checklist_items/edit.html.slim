@@ -45,7 +45,7 @@ p
                   i.fa.fa-circle-thin
 
             .div id="form-edit"
-              = form_for([@checklist, checklist_item.becomes(ChecklistItem)]) do |f|
+              = form_for([@checklist, checklist_item.becomes(ChecklistItem)], url: { action: "update_step" }) do |f|
                   = f.text_field :description
                   = f.select :type, { "Task": "ChecklistItemTask",
                                       "Yes/No": "ChecklistItemYesOrNo",

@@ -31,6 +31,13 @@ class ChecklistItemsController < ApplicationController
     redirect_to @checklist
   end
 
+  def update_step
+    @checklist_item.update_attributes(description: checklist_item_params[:description],
+                                      type: checklist_item_params[:type])
+    @checklist_item.save validate: false
+    redirect_to @checklist, notice: "Checklist item updated"
+  end
+
   def complete
     @checklist_item.update_attribute(:completed, !@checklist_item.completed)
     if @checklist_item.completed
@@ -39,6 +46,9 @@ class ChecklistItemsController < ApplicationController
       end
     elsif !@checklist_item.completed
       @checklist_item.update_attribute(:result, nil)
+      if @checklist_item.type == "ChecklistItemImage"
+        @checklist_item.image.purge
+      end
     end
     redirect_to @checklist, notice: "Checklist item completed"
   end
