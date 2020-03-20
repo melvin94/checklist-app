@@ -11,11 +11,9 @@ class ChecklistItemsController < ApplicationController
   end
 
   def edit
-    @checklist_item = @checklist.checklist_items.find(params[:id])
   end
 
   def update
-    @checklist_item = @checklist.checklist_items.find(params[:id])
     if @checklist_item.update(checklist_item_params)
       redirect_to @checklist
     else
@@ -29,12 +27,7 @@ class ChecklistItemsController < ApplicationController
   end
 
   def destroy
-    @checklist_item = @checklist.checklist_items.find(params[:id])
-    if @checklist_item.destroy
-      flash[:success] = "Checklist item was deleted."
-    else
-      flash[:error] = "Checklist item could not be deleted."
-    end
+    @checklist_item.destroy
     redirect_to @checklist
   end
 
