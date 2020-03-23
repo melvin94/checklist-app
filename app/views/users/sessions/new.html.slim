@@ -2,21 +2,24 @@
   .log_in
     = image_tag("logo.svg")
 .forms style="width: 50%;"
-  h2 Log in
-  = form_for(resource, as: resource_name, url: login_path) do |f|
-    .field
-      = f.label :email
-      br
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
-      = f.label :password
-      br
-      = f.password_field :password, autocomplete: "current-password"
-    - if devise_mapping.rememberable?
+  .logo
+    .shrimp_ops
+      = image_tag("shrimpOps_logo_000.png")
+  p
+    = form_for(resource, as: resource_name, url: login_path) do |f|
       .field
-        = f.label :remember_me do
-          => f.check_box :remember_me
-          = "Remember me"
-    .actions
-      = f.submit "Log in"
-  = render "users/shared/links"
+        = f.label :email
+        br
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label :password
+        br
+        = f.password_field :password, autocomplete: "current-password"
+      - if devise_mapping.rememberable?
+        .field
+          = f.label :remember_me do
+            => f.check_box :remember_me
+            = "Remember me"
+      .actions
+        = f.submit "Log in"
+    = render "users/shared/links"
