@@ -8,17 +8,14 @@ p
     thead
         tr
         th Checklist ID
-        th Description
+        th Title
         th Steps
         th Actions
 
     - @checklists.each do |checklist|
       tr
           td = checklist.id
-          td
-            .checklist_title
-              = checklist.title
-            = checklist.description
+          td = checklist.title
           td = checklist.checklist_items.count
           td 
               => link_to checklist_path(checklist) do
