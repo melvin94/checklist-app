@@ -5,6 +5,8 @@
   .logo
     .shrimp_ops
       = image_tag("shrimpOps_logo_000.png")
+  p style="font-style: italic;"
+    = '"...better than Lobster"'
   p
     = form_for(resource, as: resource_name, url: login_path) do |f|
       .field
