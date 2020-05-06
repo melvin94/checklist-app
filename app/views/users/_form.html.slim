@@ -8,15 +8,17 @@
                         ul
                             - @user.errors.full_messages.each do |message|
                                 li = message
+        = f.hidden_field :role_id, value: 3
+        = f.hidden_field :access_level_id, value: 1
         .field
-            = f.label :first_name
+            = f.label :first_name, "Company Name"
             - if @user.errors[:first_name].blank? == false
                 #error_explanation
                     - @user.errors[:first_name].each do |error|
                         => "*#{error}"
             = f.text_field :first_name
         .field
-            = f.label :last_name
+            = f.label :last_name, "Company Description"
             - if @user.errors[:last_name].blank? == false
                 #error_explanation
                     - @user.errors[:last_name].each do |error|
@@ -29,20 +31,20 @@
                     - @user.errors[:profile_picture].each do |error|
                         => "*#{error}"
             = f.file_field :profile_picture
-        .field
-            = f.label :role_id
-            - if @user.errors[:role].blank? == false
-                #error_explanation
-                    - @user.errors[:role].each do |error|
-                        => "*#{error}"
-            = f.collection_select :role_id, Role.all, :id, :title, include_blank: true
-        .field
-            = f.label :access_level_id
-            - if @user.errors[:access_level].blank? == false
-                #error_explanation
-                    - @user.errors[:access_level].each do |error|
-                        => "*#{error}"
-            = f.collection_select :access_level_id, AccessLevel.all, :id, :title, include_blank: true
+        / .field
+        /     = f.label :role_id
+        /     - if @user.errors[:role].blank? == false
+        /         #error_explanation
+        /             - @user.errors[:role].each do |error|
+        /                 => "*#{error}"
+        /     = f.collection_select :role_id, Role.all, :id, :title, include_blank: true
+        / .field
+        /     = f.label :access_level_id
+        /     - if @user.errors[:access_level].blank? == false
+        /         #error_explanation
+        /             - @user.errors[:access_level].each do |error|
+        /                 => "*#{error}"
+        /     = f.collection_select :access_level_id, AccessLevel.all, :id, :title, include_blank: true
         .field
             = f.label :email
             - if @user.errors[:email].blank? == false
@@ -67,4 +69,4 @@
         .actions = f.submit
 
 div.links
-    = link_to 'Back', users_path
+    = link_to 'Back', user_path(current_user)

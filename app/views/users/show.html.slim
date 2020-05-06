@@ -1,9 +1,9 @@
 .profile
   .banner_background
     .banner
-        h1 style="float: right;"
-          => link_to users_path do
-            i.fa.fa-chevron-circle-left
+        / h1 style="float: right;"
+        /   => link_to users_path do
+        /     i.fa.fa-chevron-circle-left
         .user_img
           - if @user.profile_picture.attached?
             = image_tag(@user.profile_picture)
@@ -15,7 +15,9 @@
               = link_to edit_user_path(@user) do
                 i.fa.fa-edit
             p = "Email: #{@user.email}"
-            p = "Role: #{@user.role.title}"
-            p = "Access Level: #{@user.access_level.title}"
+            / p = "Role: #{@user.role.title}"
+            / p = "Access Level: #{@user.access_level.title}"
+            p = "sample text"
+            p = "sample text"
 
 

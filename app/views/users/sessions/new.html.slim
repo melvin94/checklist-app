@@ -1,12 +1,16 @@
-.logo
-  .log_in
-    = image_tag("logo.svg")
+/ .logo
+/   .log_in
+/     = image_tag("logo.svg")
 .forms style="width: 60%;"
-  .logo
-    .shrimp_ops
-      = image_tag("shrimpOps_logo_000.svg")
-  p style="font-style: italic;"
-    = '"...better than Lobster"'
+  / .logo
+  /   .shrimp_ops style="float: left;"
+  /     = image_tag("compatible_logo.png")
+  / p style="font-style: italic;"
+  /   = '"...better than Lobster"'
+  h1
+    b => "Welcome to Compatible!"
+  h6
+    i => "''Your platform of choice for students wanting work experience''"
   p
     = form_for(resource, as: resource_name, url: login_path) do |f|
       .field

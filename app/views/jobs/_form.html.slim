@@ -1,0 +1,29 @@
+= form_for @job do |f|
+  - if @job.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@job.errors.count, "error")} prohibited this job from being saved:"
+      ul
+        - @job.errors.full_messages.each do |message|
+          li = message
+
+  = f.hidden_field :created_by, value: current_user.id
+
+  - if current_user.role.support
+    .field
+      = f.label :status
+      = f.select :status, options_for_select(["Pending review", "In review", "Approved - posted", "Not approved - pending review"])
+  - else
+    = f.hidden_field :status, value: "Pending review"
+
+  .field
+    = f.label :title
+    = f.text_field :title
+
+  .field
+    = f.label :category
+    = f.select :category, options_for_select(["Part-time Job", "Once-off Event", "Full-time Experience"])
+
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions = f.submit

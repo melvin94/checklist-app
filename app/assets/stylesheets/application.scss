@@ -36,7 +36,8 @@ body {
     // background: linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
     font-family: 'Lato', sans-serif;
 
-    background: url("logo.svg"), linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+    // background: url("logo.svg"), linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+    background: linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: cover;
@@ -83,7 +84,7 @@ body {
     max-width: 1050px;
     background: $white_opaque;
     margin: 3em auto 0 auto;
-    border-radius: 7px;
+    // // border-radius: 7px;
     -webkit-box-shadow: 0 0 4px 3px rgba(0, 0, 0, .3);
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, .3);
     padding: 1em 1em;
@@ -97,7 +98,7 @@ body {
     max-width: 1050px;
     background: transparent;
     margin: 3em auto 0 auto;
-    border-radius: 7px;
+    // border-radius: 7px;
     -webkit-box-shadow: 0 0 4px 3px rgba(0, 0, 0, .3);
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, .03);
     padding: 1em 1em;
@@ -191,7 +192,7 @@ body {
         width: 100%;
         border-top: 1px solid rgba(250, 250, 250, .3);
         border-bottom: 1px solid rgba(250, 250, 250, .3);
-        border-radius: 10px;
+        // border-radius: 10px;
 
         .complete {
             width: 10%;
@@ -216,7 +217,7 @@ body {
                 i:hover:before {
                     content: "\f00d";
                     padding: 5px;
-                    border-radius: 50%;
+                    // border-radius: 50%;
                     background-color: #ffffff49;
                 }
             }
@@ -269,7 +270,7 @@ body {
                 padding: 0.2em 0.5em;
                 display: inline-block;
                 margin-right: 1px;
-                border-radius: 5px;
+                // border-radius: 5px;
             }
 
             a:hover {
@@ -301,7 +302,7 @@ body {
             border: 2px dotted rgba(255, 255, 255, 0.5);
             display: inline-block;
             margin-top: 0;
-            border-radius: 4px;
+            // border-radius: 4px;
 
             button {
                 color: white;
@@ -309,7 +310,7 @@ body {
                 padding: 0.2em 0.5em;
                 display: inline-block;
                 margin-left: 5px;
-                border-radius: 5px;
+                // border-radius: 5px;
             }
 
             button:hover {
@@ -317,7 +318,7 @@ body {
             }
 
             input[type="file"] {
-                border-radius: 4px;
+                // border-radius: 4px;
                 width: 100%;
                 background-color: rgba(255, 255, 255, 0.5);
             }
@@ -337,7 +338,7 @@ body {
             background: rgba(250, 250, 250, .4);
             border: none;
             height: 40px;
-            border-radius: 4px;
+            // border-radius: 4px;
             padding: 1em 2em;
         }
 
@@ -348,7 +349,7 @@ body {
             background: rgba(250, 250, 250, .4);
             border: none;
             height: 40px;
-            border-radius: 4px;
+            // border-radius: 4px;
             padding: 1em 2em;
         }
 
@@ -358,7 +359,7 @@ body {
             outline: none;
             border: none;
             height: 40px;
-            border-radius: 4px;
+            // border-radius: 4px;
             display: inline-block;
             transition: all .4s ease-in-out;
             cursor: pointer;
@@ -389,7 +390,7 @@ body {
             background: rgba(250, 250, 250, .4);
             border: none;
             height: 40px;
-            border-radius: 4px;
+            // border-radius: 4px;
             cursor: pointer;
         }
 
@@ -401,7 +402,7 @@ body {
             outline: none;
             background: rgba(250, 250, 250, .4);
             border: none;
-            border-radius: 4px;
+            // border-radius: 4px;
             transition: all .4s ease-in-out;
             cursor: pointer;
 
@@ -426,7 +427,7 @@ body {
             background: rgba(250, 250, 250, .4);
             border: none;
             height: 40px;
-            border-radius: 4px;
+            // border-radius: 4px;
         }
 
         textarea {
@@ -437,7 +438,7 @@ body {
             background: rgba(250, 250, 250, .4);
             border: none;
             height: 40px;
-            border-radius: 4px;
+            // border-radius: 4px;
             height: 50px;
         }
 
@@ -447,7 +448,7 @@ body {
             outline: none;
             border: none;
             height: 40px;
-            border-radius: 4px;
+            // border-radius: 4px;
             display: inline-block;
             transition: all .4s ease-in-out;
             cursor: pointer;
@@ -468,21 +469,34 @@ body {
     height: auto;
 }
 
+.user_img {
+    text-align: center;
+
+    img {
+        width: 40px;
+        height: 40px;
+        // height: auto;
+        // border-radius: 50%;
+        border: solid rgba(255, 255, 255, 0.555);
+    }
+}
+
 .profile {
     .banner {
         padding: 10px;
         background: #1abc9c7c;
         color: white;
-        border-radius: 5px;
+        // border-radius: 5px;
 
         .user_img {
             img {
                 vertical-align: middle;
                 margin-right: 10px;
                 width: 150px;
-                height: auto;
+                height: 150px;
+                // height: auto;
                 float: left;
-                border-radius: 50%;
+                // border-radius: 50%;
             }
         }
 
@@ -498,7 +512,7 @@ body {
     }
 
     .banner_background {
-        border-radius: 5px;
+        // border-radius: 5px;
         background-image: url("banner_background.png"), linear-gradient(to right, rgb(52, 123, 190), rgba(52, 190, 137, 0.5));
         background-blend-mode: overlay;
     }
@@ -535,7 +549,7 @@ body {
     a:hover {
         color: white;
         background-color: #398AA4;
-        border-radius: 2px;
+        // border-radius: 2px;
         text-decoration: none;
     }
 
@@ -580,7 +594,7 @@ textarea {
     background: rgba(250, 250, 250, .4);
     border: none;
     height: 40px;
-    border-radius: 4px;
+    // border-radius: 4px;
     padding: 1em 2em;
 }
 
@@ -593,7 +607,7 @@ input[type="submit"] {
     outline: none;
     border: none;
     height: 40px;
-    border-radius: 4px;
+    // border-radius: 4px;
     width: 25%;
     display: inline-block;
     transition: all .4s ease-in-out;
@@ -633,7 +647,7 @@ input[type="submit"] {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    border-radius: 0px 7px 7px 7px;
+    // border-radius: 0px 7px 7px 7px;
 }
 
 /* Links inside the dropdown */
@@ -647,7 +661,7 @@ input[type="submit"] {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
     background-color: #ddd;
-    border-radius: 7px;
+    // border-radius: 7px;
 }
 
 /* Show the dropdown menu on hover */
@@ -659,7 +673,7 @@ input[type="submit"] {
 .dropdown:hover .dropbtn {
     background-color: #398AA4;
     cursor: default;
-    border-radius: 7px 7px 0px 0px;
+    // border-radius: 7px 7px 0px 0px;
     color: white;
 }
 
@@ -671,7 +685,7 @@ input[type="submit"] {
     height: 32px;
     padding: 0 0.4rem;
     border-color: #cecece;
-    border-radius: 7px;
+    // border-radius: 7px;
 }
 
 .logo-image {
@@ -698,7 +712,7 @@ input[type="submit"] {
 [ Table ]*/
 // table {
 //     border-collapse: collapse;
-//     border-radius: 10px;
+//     // border-radius: 10px;
 //     overflow: hidden;
 //     text-align: center;
 //     table-layout: fixed;
@@ -815,7 +829,7 @@ table.steelBlueCols tfoot .links a {
     background: #FFFFFF;
     color: #398AA4;
     padding: 2px 8px;
-    border-radius: 5px;
+    // border-radius: 5px;
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -839,7 +853,7 @@ table.steelBlueCols tfoot .links a {
     background-color: #245c357c;
     color: #dddddd;
     border: 1px solid #398AA4;
-    border-radius: 5px;
+    // border-radius: 5px;
 }
 
 .digg_pagination .current {
@@ -848,7 +862,7 @@ table.steelBlueCols tfoot .links a {
     background: #398AA4;
     color: white;
     border: 1px solid #398AA4;
-    border-radius: 5px;
+    // border-radius: 5px;
 }
 
 .digg_pagination a {

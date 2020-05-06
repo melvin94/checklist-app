@@ -206,9 +206,9 @@ roles.each do |role|
 end
 
 tech_support_user = User.create!(
-  first_name: "Tech",
+  first_name: "Compatible",
   last_name: "Support",
-  email: "shrimp-ops-ts@platform45.com",
+  email: "admin@compatible.com",
   password: "123456",
   password_confirmation: "123456",
   role_id: "1",
@@ -217,29 +217,97 @@ tech_support_user = User.create!(
 
 tech_support_user.profile_picture.attach(io: File.open("app/assets/images/tech_support_default.jpg"), filename: "tech_support_default.jpg")
 
-User.create(
-  first_name: "Not",
-  last_name: "Saskia",
-  email: "notsaskia@sakiadoesthings.com",
+tokara_user = User.create!(
+  first_name: "Tokara",
+  last_name: "Winefarm",
+  email: "tokara@email.com",
   password: "123456",
   password_confirmation: "123456",
-  role_id: "13",
-  access_level_id: "4",
+  role_id: "3",
+  access_level_id: "1",
 )
+tokara_user.profile_picture.attach(io: File.open("app/assets/images/tokara.jpg"), filename: "tokara.jpg")
 
-AccessLevel.all.each_with_index do |access_level, index2|
-  Role.all.each_with_index do |role, index1|
-    User.create!(
-      first_name: Faker::JapaneseMedia::OnePiece.unique.character.partition(" ").first,
-      last_name: Faker::JapaneseMedia::OnePiece.unique.character.partition(" ").first,
-      email: Faker::Internet.unique.safe_email,
-      password: "123456",
-      password_confirmation: "123456",
-      role_id: role.id,
-      access_level_id: access_level.id,
-    )
-  end
+5.times do
+  User.create!(
+    first_name: Faker::Company.unique.name,
+    last_name: Faker::Company.suffix,
+    email: Faker::Internet.unique.safe_email,
+    password: "123456",
+    password_confirmation: "123456",
+    role_id: 3,
+    access_level_id: 1,
+  )
 end
+
+User.all.each do |user|
+  Job.create!(
+    title: Faker::Job.unique.title,
+    category: "Part-time Job",
+    description: Faker::Company.unique.industry,
+    status: "Pending review",
+    created_by: user.id,
+  )
+  Job.create!(
+    title: Faker::Job.unique.title,
+    category: "Once-off Event",
+    description: Faker::Company.unique.industry,
+    status: "In review",
+    created_by: user.id,
+  )
+  Job.create!(
+    title: Faker::Job.unique.title,
+    category: "Full-time Experience",
+    description: Faker::Company.unique.industry,
+    status: "Approved - posted",
+    created_by: user.id,
+  )
+  Job.create!(
+    title: Faker::Job.unique.title,
+    category: "Part-time Job",
+    description: Faker::Company.unique.industry,
+    status: "In review",
+    created_by: user.id,
+  )
+  Job.create!(
+    title: Faker::Job.unique.title,
+    category: "Once-off Event",
+    description: Faker::Company.unique.industry,
+    status: "Not approved - pending review",
+    created_by: user.id,
+  )
+  Job.create!(
+    title: Faker::Job.unique.title,
+    category: "Full-time Experience",
+    description: Faker::Company.unique.industry,
+    status: "Pending review",
+    created_by: user.id,
+  )
+end
+
+# User.create(
+#   first_name: "Not",
+#   last_name: "Saskia",
+#   email: "notsaskia@sakiadoesthings.com",
+#   password: "123456",
+#   password_confirmation: "123456",
+#   role_id: "13",
+#   access_level_id: "4",
+# )
+
+# AccessLevel.all.each_with_index do |access_level, index2|
+#   Role.all.each_with_index do |role, index1|
+#     User.create!(
+#       first_name: Faker::JapaneseMedia::OnePiece.unique.character.partition(" ").first,
+#       last_name: Faker::JapaneseMedia::OnePiece.unique.character.partition(" ").first,
+#       email: Faker::Internet.unique.safe_email,
+#       password: "123456",
+#       password_confirmation: "123456",
+#       role_id: role.id,
+#       access_level_id: access_level.id,
+#     )
+#   end
+# end
 
 10.times do |index|
   Checklist.create!(

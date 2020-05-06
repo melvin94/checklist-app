@@ -1,17 +1,17 @@
 .profile
   .banner_background
     .banner
-        h1 style="float: right;"
-            - if @search
-                .plain-links
-                    = link_to users_path(search: !@search) do
-                        => "Clear"
-                        i.fa.fa-search-minus
-            - else
-                = link_to users_path(search: !@search) do
-                    i.fa.fa-search-plus
+        / h1 style="float: right;"
+        /     - if @search
+        /         .plain-links
+        /             = link_to users_path(search: !@search) do
+        /                 => "Clear"
+        /                 i.fa.fa-search-minus
+        /     - else
+        /         = link_to users_path(search: !@search) do
+        /             i.fa.fa-search-plus
         h1
-            => "Users"
+            => "Organizations"
 
         - if @search
             .container
@@ -39,16 +39,16 @@ p
         thead
             tr
             th Name
-            th Role
-            th Access Level
+            / th Role
+            / th Access Level
             th Email
             th Actions
 
         - @users.each do |user|
             tr
                 td = "#{user.first_name} #{user.last_name}"
-                td = user.role.title
-                td = user.access_level.title
+                / td = user.role.title
+                / td = user.access_level.title
                 td = user.email
                 td 
                     => link_to user_path(user) do
