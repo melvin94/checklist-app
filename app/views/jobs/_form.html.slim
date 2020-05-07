@@ -6,14 +6,17 @@
         - @job.errors.full_messages.each do |message|
           li = message
 
-  = f.hidden_field :created_by, value: current_user.id
 
   - if current_user.role.admin
     .field
       = f.label :status
       = f.select :status, options_for_select(["Pending review", "In review", "Approved - posted", "Not approved - pending review"])
+    .field
+      = f.label :owner
+      = f.collection_select :owner, User.all, :id, :name, include_blank: true
   - else
     = f.hidden_field :status, value: "Pending review"
+    = f.hidden_field :owner, value: current_user.id
 
   .field
     = f.label :title
@@ -26,4 +29,29 @@
   .field
     = f.label :description
     = f.text_area :description
+
+  .field
+    = f.label :location
+    = f.text_area :location
+
+  .field
+    = f.label :number_of_candidates
+    = f.number_field :number_of_candidates
+
+  .field
+    = f.label :employment_date
+    = f.date_select :employment_date
+
+  .field
+    = f.label :application_cut_off_date
+    = f.date_select :application_cut_off_date
+
+  .field
+    = f.label :daily_rate, "Daily rate (ZAR)"
+    = f.number_field :daily_rate, step: 0.01
+
+  .field
+    = f.label :requirements
+    = f.text_area :requirements
+
   .actions = f.submit

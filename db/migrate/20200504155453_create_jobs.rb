@@ -4,8 +4,14 @@ class CreateJobs < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :category
       t.text :description
+      t.text :location
+      t.integer :number_of_candidates
+      t.datetime :employment_date
+      t.datetime :application_cut_off_date
       t.string :status
-      t.integer :created_by
+      t.decimal :daily_rate
+      t.text :requirements
+      t.integer :owner
 
       t.timestamps
     end

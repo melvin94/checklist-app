@@ -1,11 +1,38 @@
 p#notice = notice
 
 p
+  strong Posted by:
+  =< User.find(@job.owner).name
+p
   strong Title:
-  = @job.title
+  =< @job.title
+p
+  strong Status:
+  =< @job.status
+p
+  strong Category:
+  =< @job.category
 p
   strong Description:
-  = @job.description
+  =< @job.description
+p
+  strong Location:
+  =< @job.location
+p
+  strong Number of Candidates:
+  =< @job.number_of_candidates
+p
+  strong Employment Date:
+  =< @job.employment_date
+p
+  strong Application Cut Off Date:
+  =< @job.application_cut_off_date
+p
+  strong Daily Rate:
+  =< @job.daily_rate
+p
+  strong Requirements:
+  =< @job.requirements
 
 => link_to 'Edit', edit_job_path(@job)
 '|

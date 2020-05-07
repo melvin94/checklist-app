@@ -1,21 +1,21 @@
 class RolePolicy < ApplicationPolicy
   def index?
-    user.role.admin
+    user.role.super_admin
   end
 
   def show?
-    user.role.admin
+    user.role.super_admin
   end
 
   def create?
-    user.role.admin
+    user.role.super_admin
   end
 
   def update?
-    user.role.admin
+    user.role.super_admin
   end
 
   def destroy?
-    user.role.admin
+    user.role.super_admin
   end
 end

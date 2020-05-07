@@ -9,12 +9,12 @@
                             - @user.errors.full_messages.each do |message|
                                 li = message
         .field
-            = f.label :entity_name
-            - if @user.errors[:entity_name].blank? == false
+            = f.label :name
+            - if @user.errors[:name].blank? == false
                 #error_explanation
-                    - @user.errors[:entity_name].each do |error|
+                    - @user.errors[:name].each do |error|
                         => "*#{error}"
-            = f.text_field :entity_name
+            = f.text_field :name
         .field
             = f.label :profile_picture
             - if @user.errors[:profile_picture].blank? == false
@@ -22,13 +22,40 @@
                     - @user.errors[:profile_picture].each do |error|
                         => "*#{error}"
             = f.file_field :profile_picture
+        - if current_user.role.super_admin
+            .field
+                = f.label :role_id
+                - if @user.errors[:role].blank? == false
+                    #error_explanation
+                        - @user.errors[:role].each do |error|
+                            => "*#{error}"
+                = f.collection_select :role_id, Role.all, :id, :description, include_blank: true
+        - else
+            = f.hidden_field :role_id, value: 3
+
         .field
-            = f.label :role_id
-            - if @user.errors[:role].blank? == false
+            = f.label :registration_number
+            - if @user.errors[:registration_number].blank? == false
                 #error_explanation
-                    - @user.errors[:role].each do |error|
+                    - @user.errors[:registration_number].each do |error|
                         => "*#{error}"
-            = f.collection_select :role_id, Role.all, :id, :description, include_blank: true
+            = f.text_field :registration_number
+        .field
+            = f.label :address
+            - if @user.errors[:address].blank? == false
+                #error_explanation
+                    - @user.errors[:address].each do |error|
+                        => "*#{error}"
+            = f.text_field :address
+        .field
+            = f.label :phone_number
+            - if @user.errors[:phone_number].blank? == false
+                #error_explanation
+                    - @user.errors[:phone_number].each do |error|
+                        => "*#{error}"
+            = f.text_field :phone_number
+
+
         .field
             = f.label :email
             - if @user.errors[:email].blank? == false
@@ -53,4 +80,7 @@
         .actions = f.submit
 
 div.links
-    = link_to 'Back', user_path(current_user)
+    - if current_user.role.admin == false
+        = link_to 'Back', user_path(current_user)
+    - else
+        = link_to 'Back', users_path

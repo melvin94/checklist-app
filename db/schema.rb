@@ -37,8 +37,14 @@ ActiveRecord::Schema.define(version: 2020_05_04_155453) do
     t.string "title"
     t.string "category"
     t.text "description"
+    t.text "location"
+    t.integer "number_of_candidates"
+    t.datetime "employment_date"
+    t.datetime "application_cut_off_date"
     t.string "status"
-    t.integer "created_by"
+    t.decimal "daily_rate"
+    t.text "requirements"
+    t.integer "owner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -47,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_155453) do
     t.string "description"
     t.boolean "basic"
     t.boolean "admin"
+    t.boolean "super_admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -59,7 +66,10 @@ ActiveRecord::Schema.define(version: 2020_05_04_155453) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "entity_name"
+    t.string "name"
+    t.string "registration_number"
+    t.string "address"
+    t.string "phone_number"
     t.integer "role_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

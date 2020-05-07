@@ -12,6 +12,7 @@ p
         th Description
         th Basic
         th Admin
+        th Super Admin
         th Actions
 
     tbody
@@ -20,6 +21,7 @@ p
           td = role.description
           td = role.basic ? "✔" : "✘"
           td = role.admin ? "✔" : "✘"
+          td = role.super_admin ? "✔" : "✘"
           td
             => link_to role do
               i.fa.fa-eye

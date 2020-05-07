@@ -5,10 +5,11 @@
 
     .log-out-links
         .user_img
-            - if current_user.profile_picture.attached?
-                = image_tag(current_user.profile_picture)
-            - else
-                = image_tag("default_profile_pic.png")
+            = link_to user_path(current_user) do
+                - if current_user.profile_picture.attached?
+                    = image_tag(current_user.profile_picture)
+                - else
+                    = image_tag("default_profile_pic.png")
         = link_to "Log Out", logout_path, method: :delete, data: { confirm: 'Are you sure?' }
 
 
@@ -18,11 +19,6 @@
             => link_to "Create Job", new_job_path
             => link_to "View Jobs", jobs_path
 
-    .dropdown
-        .dropbtn Profile
-        .dropdown-content
-            => link_to "My Profile", user_path(current_user)
-
     - if current_user.role.admin
         .dropdown
             .dropbtn Users
@@ -30,6 +26,7 @@
                 => link_to "Create User", new_user_path
                 => link_to "View Users", users_path
 
+    - if current_user.role.super_admin
         .dropdown
             .dropbtn Roles & Perms
             .dropdown-content

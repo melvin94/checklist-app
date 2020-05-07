@@ -4,7 +4,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    user.role.admin || user.role_id == record.role_id
+    if record.role.super_admin
+      user.role.super_admin
+    else
+      user.role.admin || user.role_id == record.role_id
+    end
   end
 
   def create?
@@ -12,10 +16,14 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    user.role.admin || user.role_id == record.role_id
+    if record.role.super_admin
+      user.role.super_admin
+    else
+      user.role.admin || user.role_id == record.role_id
+    end
   end
 
   def destroy?
-    user.role.admin
+    user.role.super_admin
   end
 end

@@ -11,11 +11,13 @@
             = image_tag("default_profile_pic.png")
         .text
             h1
-              => @user.entity_name
+              => @user.name
               = link_to edit_user_path(@user) do
                 i.fa.fa-edit
             p = "Email: #{@user.email}"
             p = "Role: #{@user.role.description}"
-            p = "sample text"
+            p = "Reg: #{@user.registration_number}"
+            p = "Address: #{@user.address}"
+            p = "Phone: #{@user.phone_number}"
 
 

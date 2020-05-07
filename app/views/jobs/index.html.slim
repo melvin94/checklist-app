@@ -9,9 +9,9 @@
     table.steelBlueCols
       thead
         tr
+          th Job ID
           th Posted by
           th Job Title
-          th Job Description
           th Category
           th Review Status
           th
@@ -19,34 +19,38 @@
       tbody
         - @jobs.each do |job|
           tr
-            td = User.find(job.created_by).entity_name
+            td = job.id
+            td = User.find(job.owner).name
             td = job.title
-            td = job.description
             td = job.category
             td = job.status
             td
+              => link_to "View", job_path(job)
               => link_to 'Review', edit_job_path(job)
-              / => link_to 'Destroy', job, data: { confirm: 'Are you sure?' }, method: :delete
+              - if current_user.role.super_admin
+                => link_to 'Destroy', job, data: { confirm: 'Are you sure?' }, method: :delete
 
 - else
   p
     table.steelBlueCols
       thead
         tr
+          th Job ID
           th Job Title
-          th Job Description
           th Category
           th Review Status
           th
 
       tbody
         - @jobs.each do |job|
-          - if job.created_by == current_user.id
+          - if job.owner == current_user.id
             tr
+              td = job.id
               td = job.title
-              td = job.description
               td = job.category
               td = job.status
               td
+                => link_to "View", job_path(job)
                 => link_to 'Edit', edit_job_path(job)
+
 

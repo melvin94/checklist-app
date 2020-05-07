@@ -4,6 +4,7 @@ class CreateRoles < ActiveRecord::Migration[6.0]
       t.string :description
       t.boolean :basic
       t.boolean :admin
+      t.boolean :super_admin
 
       t.timestamps
     end

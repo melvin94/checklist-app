@@ -7,7 +7,11 @@ class User < ApplicationRecord
 
   belongs_to :role
 
-  validates_presence_of :entity_name
+  validates_presence_of :name
+  validates :registration_number, uniqueness: true
+  validates_presence_of :address
+  validates_presence_of :phone_number
   validates :email, uniqueness: true
+  validates_presence_of :password
   validates_presence_of :password_confirmation
 end

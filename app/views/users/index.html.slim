@@ -1,6 +1,8 @@
 .profile
   .banner_background
     .banner
+        h1
+            => "Organizations"
         / h1 style="float: right;"
         /     - if @search
         /         .plain-links
@@ -10,26 +12,23 @@
         /     - else
         /         = link_to users_path(search: !@search) do
         /             i.fa.fa-search-plus
-        h1
-            => "Organizations"
-
-        - if @search
-            .container
-                = form_tag(users_path, method: :get) do
-                    .field
-                        = label_tag :entity_name
-                        = text_field_tag :entity_name, params[:entity_name]
-                    .field
-                        = label_tag :last_name
-                        = text_field_tag :last_name, params[:last_name]
-                    .field
-                        = label_tag :role
-                        = collection_select :role, :title, Role.all, :title, :title, include_blank: true, selected: params[:role].nil? ? "" : params[:role][:title]
-                    .field
-                        = label_tag :email
-                        = text_field_tag :email, params[:email]
-                    .actions
-                        = submit_tag "Search"
+        / - if @search
+        /     .container
+        /         = form_tag(users_path, method: :get) do
+        /             .field
+        /                 = label_tag :entity_name
+        /                 = text_field_tag :entity_name, params[:entity_name]
+        /             .field
+        /                 = label_tag :last_name
+        /                 = text_field_tag :last_name, params[:last_name]
+        /             .field
+        /                 = label_tag :role
+        /                 = collection_select :role, :title, Role.all, :title, :title, include_blank: true, selected: params[:role].nil? ? "" : params[:role][:title]
+        /             .field
+        /                 = label_tag :email
+        /                 = text_field_tag :email, params[:email]
+        /             .actions
+        /                 = submit_tag "Search"
 
 p
     table.steelBlueCols
@@ -42,7 +41,7 @@ p
 
         - @users.each do |user|
             tr
-                td = user.entity_name
+                td = user.name
                 td = user.role.description
                 td = user.email
                 td 
@@ -50,8 +49,9 @@ p
                         i.fa.fa-eye
                     => link_to edit_user_path(user) do
                         i.fa.fa-edit
-                    => link_to user, data: { confirm: 'Are you sure?' }, method: :delete do
-                        i.fa.fa-trash
+                    - if current_user.role.super_admin
+                        => link_to user, data: { confirm: 'Are you sure?' }, method: :delete do
+                            i.fa.fa-trash
 
     .digg_pagination style="text-align: right;"
         = page_entries_info @users
