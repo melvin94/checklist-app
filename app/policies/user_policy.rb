@@ -1,6 +1,10 @@
 class UserPolicy < ApplicationPolicy
-  def show?
+  def index?
     user.role.admin
+  end
+
+  def show?
+    user.role.admin || user.role_id == record.role_id
   end
 
   def create?

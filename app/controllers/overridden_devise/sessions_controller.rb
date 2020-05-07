@@ -11,17 +11,14 @@ class OverriddenDevise::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     @alert_message = ""
-    if params[:user][:email].include? "saskia"
-      @alert_message = "Saskia, please..."
-      destroy
-    elsif current_user && current_user.role.admin
+    if current_user && current_user.role.basic
       super
     else
-      if current_user && current_user.role.admin == false
-        @alert_message = "You do not have access to the platform #{current_user.first_name} #{current_user.last_name}."
+      if current_user && current_user.role.basic == false
+        @alert_message = "You do not have access to the platform #{current_user.entity_name}"
       else
         if params[:user][:email].blank? == false
-          @alert_message = "Incorrect password or the user '#{params[:user][:email]}' does not exist."
+          @alert_message = "Incorrect password or the user ''#{params[:user][:email]}'' does not exist."
         else
           @alert_message = "An email address is required to log into the platform."
         end

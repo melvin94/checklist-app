@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       @users = policy_scope(User)
     end
     @users = @users.order(:id).paginate(page: params[:page], per_page: 10)
+    authorize @users
   end
 
   def show
