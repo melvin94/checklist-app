@@ -5,7 +5,7 @@
         => link_to roles_path do
           i.fa.fa-chevron-circle-left
       h1
-        = @role.title
+        = "#{@role.description} Permissions"
 
   p
     .table
@@ -17,30 +17,9 @@
 
         tbody
           tr
-            td = "Checklist user"
-            td = @role.checklist_user ? "✔" : "✘" 
-          tr
-            td = "Checklist manager"
-            td = @role.checklist_manager ? "✔" : "✘" 
-          tr
-            td = "User manager"
-            td = @role.user_manager ? "✔" : "✘" 
-          tr
-            td = "Organization manager"
-            td = @role.organization_manager ? "✔" : "✘" 
-          tr
-            td = "Audit manager"
-            td = @role.audit_manager ? "✔" : "✘" 
-          tr
-            td = "Audit user"
-            td = @role.audit_user ? "✔" : "✘" 
-          tr
-            td = "Primary"
-            td = @role.primary ? "✔" : "✘" 
+            td = "Basic"
+            td = @role.basic ? "✔" : "✘" 
           tr
             td = "Admin"
             td = @role.admin ? "✔" : "✘" 
-          tr
-            td = "Support"
-            td = @role.support ? "✔" : "✘" 
 

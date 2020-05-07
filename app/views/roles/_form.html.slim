@@ -8,44 +8,16 @@
             li = message
 
     .field
-      = f.label :title
-      = f.text_field :title
+      = f.label :description
+      = f.text_field :description
     .field
-      = f.label :checklist_user do
-        => f.check_box :checklist_user
-        = "Checklist User"
-    .field
-      = f.label :checklist_manager do
-        => f.check_box :checklist_manager
-        = "Checklist Manager"
-    .field
-      = f.label :user_manager do
-        => f.check_box :user_manager
-        = "User Manager"
-    .field
-      = f.label :organization_manager do
-        => f.check_box :organization_manager
-        = "Organization Manager"
-    .field
-      = f.label :audit_manager do
-        => f.check_box :audit_manager
-        = "Audit Manager"
-    .field
-      = f.label :audit_user do
-        => f.check_box :audit_user
-        = "Audit User"
-    .field
-      = f.label :primary do
-        => f.check_box :primary
-        = "Primary"
+      = f.label :basic do
+        => f.check_box :basic
+        = "Basic"
     .field
       = f.label :admin do
         => f.check_box :admin
         = "Admin"
-    .field
-      = f.label :support do
-        => f.check_box :support
-        = "Support"
     .actions = f.submit
 
 div.links

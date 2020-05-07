@@ -1,7 +1,7 @@
 .profile
   .banner_background
     .banner
-      h1 Roles
+      h1 Roles & Permissions
     
     
 
@@ -9,31 +9,17 @@ p
   table.steelBlueCols
     thead
       tr
-        th Title
-        th Checklist user
-        th Checklist manager
-        th User manager
-        th Organization manager
-        th Audit manager
-        th Audit user
-        th Primary
+        th Description
+        th Basic
         th Admin
-        th Support
         th Actions
 
     tbody
       - @roles.each do |role|
         tr
-          td = role.title
-          td = role.checklist_user ? "✔" : "✘"
-          td = role.checklist_manager ? "✔" : "✘"
-          td = role.user_manager ? "✔" : "✘"
-          td = role.organization_manager ? "✔" : "✘"
-          td = role.audit_manager ? "✔" : "✘"
-          td = role.audit_user ? "✔" : "✘"
-          td = role.primary ? "✔" : "✘"
+          td = role.description
+          td = role.basic ? "✔" : "✘"
           td = role.admin ? "✔" : "✘"
-          td = role.support ? "✔" : "✘"
           td
             => link_to role do
               i.fa.fa-eye

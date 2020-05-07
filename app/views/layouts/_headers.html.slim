@@ -1,7 +1,5 @@
 .container style="background-size: 100% 900%;"
-    / .logo-image
-    /     = link_to checklists_path do
-    /         = image_tag("logo.svg")
+
     .logo-image
         = image_tag("compatible_logo.png")
 
@@ -12,34 +10,12 @@
             - else
                 = image_tag("default_profile_pic.png")
         = link_to "Log Out", logout_path, method: :delete, data: { confirm: 'Are you sure?' }
-        / br
-        / = link_to "#{current_user.email}", user_path(current_user)
-        / br
-        / => link_to "#{current_user.role.title}", role_path(current_user.role)
-        / => "|"
-        / = link_to "#{current_user.access_level.title}", access_level_path(current_user.access_level)
 
-    / => link_to "Overview"
-    / => link_to "Reports"
-    / => link_to "Assignments"
-    / => link_to "Checklists", checklists_path
-    / => link_to "Users", users_path
-    / => link_to "Teams"
-    / => link_to "Audit"
-    / => link_to "Roles"
-
-    / .dropdown
-    /     .dropbtn Checklists
-    /     .dropdown-content
-    /         - if current_user.role.checklist_manager
-    /             => link_to "Create Checklist", new_checklist_path
-    /         => link_to "View Checklists", checklists_path
 
     .dropdown
         .dropbtn Jobs
         .dropdown-content
-            - if current_user.role.checklist_manager
-                => link_to "Create Job", new_job_path
+            => link_to "Create Job", new_job_path
             => link_to "View Jobs", jobs_path
 
     .dropdown
@@ -47,24 +23,15 @@
         .dropdown-content
             => link_to "My Profile", user_path(current_user)
 
-    - if current_user.role.support        
+    - if current_user.role.admin
         .dropdown
             .dropbtn Users
             .dropdown-content
-                - if current_user.role.user_manager
-                    => link_to "Create User", new_user_path
+                => link_to "Create User", new_user_path
                 => link_to "View Users", users_path
 
-
-    / - if current_user.role.support
-    /     .dropdown
-    /         .dropbtn Roles
-    /         .dropdown-content
-    /             => link_to "Create Role", new_role_path
-    /             => link_to "View Roles", roles_path
-
-    /     .dropdown
-    /         .dropbtn Access Levels
-    /         .dropdown-content
-    /             => link_to "Create Access Level", new_access_level_path
-    /             => link_to "View Access Levels", access_levels_path
+        .dropdown
+            .dropbtn Roles & Perms
+            .dropdown-content
+                => link_to "Create Role", new_role_path
+                => link_to "View Roles", roles_path

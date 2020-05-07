@@ -8,7 +8,7 @@
 
   = f.hidden_field :created_by, value: current_user.id
 
-  - if current_user.role.support
+  - if current_user.role.admin
     .field
       = f.label :status
       = f.select :status, options_for_select(["Pending review", "In review", "Approved - posted", "Not approved - pending review"])

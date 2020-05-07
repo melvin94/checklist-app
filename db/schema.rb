@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_05_04_155453) do
 
-  create_table "access_levels", force: :cascade do |t|
-    t.integer "level"
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -40,24 +33,6 @@ ActiveRecord::Schema.define(version: 2020_05_04_155453) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "checklist_items", force: :cascade do |t|
-    t.string "description"
-    t.string "result"
-    t.boolean "completed"
-    t.integer "checklist_id", null: false
-    t.string "type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["checklist_id"], name: "index_checklist_items_on_checklist_id"
-  end
-
-  create_table "checklists", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "category"
@@ -69,16 +44,9 @@ ActiveRecord::Schema.define(version: 2020_05_04_155453) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string "title"
-    t.boolean "checklist_user"
-    t.boolean "checklist_manager"
-    t.boolean "user_manager"
-    t.boolean "organization_manager"
-    t.boolean "audit_manager"
-    t.boolean "audit_user"
-    t.boolean "primary"
+    t.string "description"
+    t.boolean "basic"
     t.boolean "admin"
-    t.boolean "support"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -91,18 +59,13 @@ ActiveRecord::Schema.define(version: 2020_05_04_155453) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name"
-    t.string "last_name"
+    t.string "entity_name"
     t.integer "role_id"
-    t.integer "access_level_id"
-    t.index ["access_level_id"], name: "index_users_on_access_level_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "checklist_items", "checklists"
-  add_foreign_key "users", "access_levels"
   add_foreign_key "users", "roles"
 end

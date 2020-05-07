@@ -17,17 +17,14 @@
             .container
                 = form_tag(users_path, method: :get) do
                     .field
-                        = label_tag :first_name
-                        = text_field_tag :first_name, params[:first_name]
+                        = label_tag :entity_name
+                        = text_field_tag :entity_name, params[:entity_name]
                     .field
                         = label_tag :last_name
                         = text_field_tag :last_name, params[:last_name]
                     .field
                         = label_tag :role
                         = collection_select :role, :title, Role.all, :title, :title, include_blank: true, selected: params[:role].nil? ? "" : params[:role][:title]
-                    .field
-                        = label_tag :access_level
-                        = collection_select :access_level, :title, AccessLevel.all, :title, :title, include_blank: true, selected: params[:access_level].nil? ? "" : params[:access_level][:title]
                     .field
                         = label_tag :email
                         = text_field_tag :email, params[:email]
@@ -39,16 +36,14 @@ p
         thead
             tr
             th Name
-            / th Role
-            / th Access Level
+            th Role
             th Email
             th Actions
 
         - @users.each do |user|
             tr
-                td = "#{user.first_name} #{user.last_name}"
-                / td = user.role.title
-                / td = user.access_level.title
+                td = user.entity_name
+                td = user.role.description
                 td = user.email
                 td 
                     => link_to user_path(user) do

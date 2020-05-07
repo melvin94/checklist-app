@@ -1,2 +1,0 @@
-class ChecklistItemRating < ChecklistItem
-end

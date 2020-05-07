@@ -4,7 +4,7 @@
         h1
             => "Jobs"
 
-- if current_user.role.support
+- if current_user.role.admin
   p
     table.steelBlueCols
       thead
@@ -19,7 +19,7 @@
       tbody
         - @jobs.each do |job|
           tr
-            td = User.find(job.created_by).first_name
+            td = User.find(job.created_by).entity_name
             td = job.title
             td = job.description
             td = job.category

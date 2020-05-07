@@ -1,2 +1,0 @@
-class ChecklistItemTask < ChecklistItem
-end
